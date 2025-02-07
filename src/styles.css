@@ -9,6 +9,10 @@ body, html {
   padding: 0;
 }
 
+.page-container {
+  padding: 5em 5em;
+}
+
 h1 {
   font-size: 2.986rem;
 }
