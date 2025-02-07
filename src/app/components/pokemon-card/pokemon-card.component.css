@@ -4,7 +4,7 @@
   padding-block: 1em;;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
 }
@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   transform: scale(0.6);
-  transform-origin: center;
+  transform-origin: bottom;
 }
 
 .id p {
