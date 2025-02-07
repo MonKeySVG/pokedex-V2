@@ -12,9 +12,27 @@
 }
 
 .search-bar-container {
-
+  position: relative;
+  width: 50%;
+  max-width: 600px;
 }
 
 .search-bar-container input {
+  width: 100%;
+  padding: 0.5em 0.5em 0.5em 2em; /* Add padding to the left for the icon */
+  font-size: 1.44em;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  color: gray;
+}
 
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.5em;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  color: grey;
+  display: flex;
 }
