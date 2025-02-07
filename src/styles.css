@@ -42,7 +42,7 @@ p {
 }
 
 .shadow {
-  background-color: hsl(240, 7%, 11%);;
+  background-color: hsl(240, 7%, 11%);
   /* 1. inner glow 👇 */
   box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
     /* 2. shadow ring 👇 */

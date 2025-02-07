@@ -1,4 +1,4 @@
-<div class="header-container shadow">
+<div class="header-container">
   <div class="left-part">
     <div class="logo">
       <h6>OnboardEx</h6>
@@ -11,10 +11,16 @@
   </div>
 
   <div class="right-part">
-
+    <div class="search-bar shadow" (click)="openSearchBar()">
+      <p class="search-placeholder">Search</p>
+      <div class="search-icon shadow">
+        <p>⌘K</p>
+      </div>
+    </div>
     <div class="dark-mode-toggle">
-
     </div>
 
   </div>
 </div>
+
+<app-search-bar *ngIf="isSearchBarOpen" (close)="closeSearchBar()"></app-search-bar>
