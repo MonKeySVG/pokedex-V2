@@ -1,22 +1,29 @@
-<div class="pokemon shadow">
-  <div class="img-container">
-    <img *ngIf="pokemon.spriteShowdownUrl" [src]="pokemon.spriteShowdownUrl" [alt]="pokemon.name">
+<div class="pokemon shadow" (click)="flipCard()">
+  <div *ngIf="!isFlipped" class="pokemon-card-front">
+    <div class="img-container">
+      <img *ngIf="pokemon.spriteShowdownUrl" [src]="pokemon.spriteShowdownUrl" [alt]="pokemon.name">
+    </div>
+
+    <div class="info-container">
+      <div class="id">
+        <p>#{{pokemon.id}}</p>
+      </div>
+
+      <div class="name">
+        <p>{{pokemon.name}}</p>
+      </div>
+
+      <div class="types">
+        <p *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
+        <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
+      </div>
+    </div>
   </div>
 
-  <div class="info-container">
-    <div class="id">
-      <p>#{{pokemon.id}}</p>
-    </div>
-
-    <div class="name">
-      <p>{{pokemon.name}}</p>
-    </div>
-
-    <div class="types">
-      <p *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
-      <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
-    </div>
+  <div *ngIf="isFlipped" class="pokemon-card-back">
+    <p>test</p>
   </div>
+
 
 
 </div>

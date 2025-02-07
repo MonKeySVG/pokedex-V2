@@ -13,5 +13,10 @@ import {NgClass, NgIf} from '@angular/common';
 })
 export class PokemonCardComponent {
   @Input() pokemon!: Pokemon;
+  isFlipped: boolean = false;
+
+  flipCard(): void {
+    this.isFlipped = !this.isFlipped;
+  }
 
 }
