@@ -50,6 +50,23 @@
   background-color: red;
 }
 
+.pokemon-card-back {
+  position: relative;
+}
+
+.pokemon-card-back img {
+  position: absolute;
+  transform: translate(-50%, 50%);
+  z-index: 0;
+  opacity: 0.1;
+}
+
+.pokemon-card-back .stats {
+  position: relative;
+  z-index: 1;
+
+}
+
 
 .types .type-normal { background-color: #A8A77A; color: #6D6D4E; }
 .types .type-fire { background-color: #EE8130; color: #B22200; }
