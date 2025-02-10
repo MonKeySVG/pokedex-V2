@@ -61,23 +61,25 @@ button {
   cursor: pointer;
 }
 
-progress {
+meter {
   /* style rules */
   appearance: none;
-  height: 6px;
 
 }
-progress::-webkit-progress-bar {
+
+meter::-webkit-meter-bar {
+  background: none; /* Required to get rid of the default background property */
   background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  height: 6px;
+  padding: 2px;
   border-radius: 3px;
-  padding: 1px;
+
 }
-progress::-webkit-progress-value {
+
+meter::-webkit-meter-optimum-value {
+  background: none; /* Required to get rid of the default background property */
   background-color: lightgrey;
   border-radius: 3px;
+
 }
 
-progress::-moz-progress-bar {
-  /* style rules */
-}

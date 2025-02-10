@@ -91,9 +91,8 @@
   flex: 2;
 }
 
-.stat-container progress {
+.stat-container meter {
   flex: 5;
-
 }
 
 
