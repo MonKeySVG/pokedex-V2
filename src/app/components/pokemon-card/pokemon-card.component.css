@@ -66,7 +66,7 @@
 .pokemon-card-back .stats {
   position: relative;
   z-index: 10;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
 
 }
 
@@ -100,6 +100,7 @@
 .pokemon-card-back h5 {
   margin: 0;
   text-transform: capitalize;
+  margin-bottom: 0.5rem;
 }
 
 .pokemon-card-back .size-info {
@@ -114,7 +115,16 @@
 }
 
 .pokemon-card-back .size-info p {
-  margin: 1rem 0;
+  margin: 0;
+}
+
+.pokemon-card-back button {
+  font-size: 0.7em;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
+  margin-top: 0.5rem;
+
 }
 
 

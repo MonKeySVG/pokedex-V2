@@ -54,11 +54,19 @@ p {
 }
 
 button {
-  border-radius: 8px;
-  color: lightgrey;
-  padding: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   border: none;
+  padding: 0.3em 0.8em;;
+  margin: 0;
+  font: inherit;
   cursor: pointer;
+  color: lightgrey;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  border-radius: 8px;
 }
 
 meter {
