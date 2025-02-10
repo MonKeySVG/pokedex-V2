@@ -60,3 +60,24 @@ button {
   border: none;
   cursor: pointer;
 }
+
+progress {
+  /* style rules */
+  appearance: none;
+  height: 6px;
+
+}
+progress::-webkit-progress-bar {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 3px;
+  padding: 1px;
+}
+progress::-webkit-progress-value {
+  background-color: lightgrey;
+  border-radius: 3px;
+}
+
+progress::-moz-progress-bar {
+  /* style rules */
+}
