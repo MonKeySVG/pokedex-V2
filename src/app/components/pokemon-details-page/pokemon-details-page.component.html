@@ -1,3 +1,15 @@
 <div class="page-container">
-  <p>{{ pokemon.name }}</p>
+  <div class="img-container">
+    <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}">
+  </div>
+  <h1>{{ pokemon.name }}</h1>
+  <p *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
+  <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
+  <div class="stats">
+    <div *ngFor="let stat of pokemon.stats; let i = index" class="stat-container">
+      <p class="stat-name">{{statNames[i]}}</p>
+      <meter [value]="stat" [max]="255"></meter>
+      <p class="stat-value">{{stat}}</p>
+    </div>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 import {SearchBarComponent} from '../search-bar/search-bar.component';
 import {NgIf} from '@angular/common';
+import {PokedexService} from '../../services/pokedex.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,13 @@ import {NgIf} from '@angular/common';
 })
 export class HeaderComponent {
   isSearchBarOpen = false;
+
+  constructor(private pokedexService: PokedexService) {
+  }
+
+  ngOnInit() {
+    this.pokedexService.getAllPokemons();
+  }
 
   openSearchBar() {
     this.isSearchBarOpen = true;
