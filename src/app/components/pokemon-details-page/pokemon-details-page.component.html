@@ -1,5 +1,5 @@
 <div class="page-container">
-  <h1>{{pokemon.japName}}</h1>
+  <h1 class="jap-name" [style.color]="pokemon.color">{{pokemon.japName}}</h1>
   <div class="left-part">
     <div class="img-container">
       <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}">
@@ -10,32 +10,38 @@
 
     <div class="base-info-container">
       <p class="id">#{{ pokemon.id }}</p>
-      <h1>{{ pokemon.name }}</h1>
+      <div class="name-container">
+        <h1>{{ pokemon.name }}</h1>
+        <div class="status-container">
+          <!--Is legendary tout ça-->
+        </div>
+
+      </div>
     </div>
 
-    <div class="status-container">
-      <!--Is legendary tout ça-->
-    </div>
 
-    <div class="types-container">
+
+    <div class="types">
       <p *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
       <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
     </div>
 
+    <div class="description-container">
+      <h6>{{pokemon.description}}</h6>
+    </div>
+
     <div class="additional-info-container">
-      <h6>Origin generation : {{pokemon.generation}}</h6>
-      <h6>Habitat : {{pokemon.habitat}}</h6>
+      <p>Origin generation : {{pokemon.generation}}</p>
+      <p>Habitat : {{pokemon.habitat}}</p>
 
       <div class="size-container">
-        <h6>Height : {{pokemon.height}}m</h6>
-        <h6>Weight : {{pokemon.weight}}kg</h6>
+        <p>Height : {{pokemon.height}}m</p>
+        <p>Weight : {{pokemon.weight}}kg</p>
       </div>
 
     </div>
 
-    <div class="description-container">
-      <p>{{pokemon.description}}</p>
-    </div>
+
 
     <div class="stats-container">
       <div *ngFor="let stat of pokemon.stats; let i = index" class="stat-container">

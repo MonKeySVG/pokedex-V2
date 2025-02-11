@@ -1,0 +1,73 @@
+.page-container {
+  display: flex;
+  align-items: center;
+}
+
+.left-part {
+  flex: 2;
+}
+
+.right-part {
+  flex: 1;
+}
+
+.jap-name {
+  position: absolute;
+  font-size: 10vw;
+  font-weight: 900;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.base-info-container h1 {
+  margin: 0;
+  text-transform: capitalize;
+  letter-spacing: 0.5rem;
+  font-weight: 700;
+}
+
+.base-info-container p {
+  margin: 0;
+  opacity: 0.6;
+}
+
+.types {
+  display: flex;
+  gap: 0.5em;
+}
+
+.types p {
+  padding: 0.3em 0.8em;
+  border-radius: 8px;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.stats {
+  display: flex;
+}
+
+.stat-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-container p {
+  flex: 1;
+  margin-block: 0.5rem;
+}
+
+.stat-container p:last-child {
+  text-align: end;
+}
+
+.stat-container meter {
+  width: 50%;
+  flex: 5;
+}
+
+.description-container h6 {
+  font-weight: 300;
+}
