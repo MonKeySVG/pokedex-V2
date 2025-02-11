@@ -86,7 +86,10 @@ export class SearchBarComponent {
 
   selectPokemon(pokemon: Pokemon) {
     this.closeSearchBar();
-    this.router.navigate(['/pokemon', pokemon.id]);
+    const url = this.router.createUrlTree(['/pokemon', pokemon.id]).toString();
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl(url);
+    });
   }
 
   ngAfterViewInit() {
