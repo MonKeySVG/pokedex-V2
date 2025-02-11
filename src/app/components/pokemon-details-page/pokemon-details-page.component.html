@@ -2,6 +2,7 @@
   <div class="img-container">
     <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}">
   </div>
+  <h1>{{pokemon.japName}}</h1>
   <h1>{{ pokemon.name }}</h1>
   <p *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
   <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
@@ -13,3 +14,11 @@
     </div>
   </div>
 </div>
+
+<h1>{{pokemon.generation}}</h1>
+<h1>{{pokemon.color}}</h1>
+<h1>{{pokemon.isBaby}}</h1>
+<h1>{{pokemon.isMythical}}</h1>
+<h1>{{pokemon.isLegendary}}</h1>
+<h1>{{pokemon.description}}</h1>
+<h1>{{pokemon.habitat}}</h1>

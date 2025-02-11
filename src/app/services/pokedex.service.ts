@@ -24,28 +24,44 @@ export class PokedexService {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
+  getPokemonSpeciesById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}-species/${id}`);
+  }
+
   getAllPokemons(): void {
     if (this.pokemonsSubject.getValue().length > 0) {
       return;
     }
 
     const pokemonIds = Array.from({ length: 721 }, (_, i) => i + 1);
-    const requests = pokemonIds.map(id => this.getPokemonById(id));
+    const requests = pokemonIds.map(id =>
+      forkJoin({
+        pokemon: this.getPokemonById(id),
+        species: this.getPokemonSpeciesById(id)
+      })
+    );
+
     forkJoin(requests).pipe(
       tap(data => {
-        const pokemons = data.map(pokemonData => {
-          const id = pokemonData.id;
-          const name = pokemonData.name;
-          const types = pokemonData.types.map((type: any) => type.type.name);
+        const pokemons = data.map(({ pokemon, species }) => {
+          const id = pokemon.id;
+          const name = pokemon.name;
+          const japName = species.names.find((name: any) => name.language.name === 'ja').name;
+          const color = species.color.name;
+          const isBaby = species.is_baby;
+          const isMythical = species.is_mythical;
+          const isLegendary = species.is_legendary;
+          const description = species.flavor_text_entries.find((entry: any) => entry.language.name === 'en').flavor_text;
+          const habitat = species.habitat?.name;
+          const types = pokemon.types.map((type: any) => type.type.name);
           const generation = this.getGeneration(id);
-          const spriteUrl = pokemonData.sprites.front_default;
-          const spriteArtworkUrl = pokemonData.sprites.other['official-artwork'].front_default;
-          const spriteShowdownUrl = pokemonData.sprites.other.showdown.front_default;
-          const height = pokemonData.height / 10;
-          const weight = pokemonData.weight;
-          const stats = pokemonData.stats.map((stat: any) => stat.base_stat);
-          return new Pokemon(id, name, types, generation, spriteUrl, spriteArtworkUrl, spriteShowdownUrl, height, weight, stats);
-        });
+          const spriteUrl = pokemon.sprites.front_default;
+          const spriteArtworkUrl = pokemon.sprites.other['official-artwork'].front_default;
+          const spriteShowdownUrl = pokemon.sprites.other.showdown.front_default;
+          const height = pokemon.height / 10;
+          const weight = pokemon.weight;
+          const stats = pokemon.stats.map((stat: any) => stat.base_stat);
+          return new Pokemon(id, name, japName, color, isBaby, isMythical, isLegendary, description, habitat, types, generation, spriteUrl, spriteArtworkUrl, spriteShowdownUrl, height, weight, stats);        });
         this.pokemonsSubject.next(pokemons);
       })
     ).subscribe();
