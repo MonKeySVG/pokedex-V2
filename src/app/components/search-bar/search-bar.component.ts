@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {Pokemon} from '../../models/pokemon.model';
 import {PokedexService} from '../../services/pokedex.service';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -9,7 +9,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     NgIf,
     NgForOf,
-    FormsModule
+    FormsModule,
+    NgClass
   ],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.css'

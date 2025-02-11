@@ -26,7 +26,7 @@
   border-radius: 12px 12px 0 0;
   border: none;
   outline: none;
-  color: gray;
+  color: lightgrey;
 
 }
 
@@ -48,7 +48,13 @@
   border-radius: 0 0 12px 12px;
 }
 
-.search-bar-container .shadow {
+.search-results p {
+  padding: 1em 3em;
+  padding-right: 1em;
+  border-bottom: 1px;
+}
+
+.search-bar-container .blurred-bg {
   background-color: rgba(0, 0, 0, 0.6);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -73,4 +79,30 @@ h6, p {
   width: 24px;
   border-radius: 8px;
   margin-bottom: 1rem;
+}
+
+.result-container {
+  display: flex;
+}
+
+.result-container:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.types-container {
+  display: flex;
+  align-items: center;
+}
+
+.types {
+  display: flex;
+  gap: 0.5em;
+}
+
+.types p {
+  padding: 0.3em 0.8em;
+  border-radius: 8px;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: capitalize;
 }
