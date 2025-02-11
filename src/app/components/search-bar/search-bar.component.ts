@@ -20,6 +20,8 @@ export class SearchBarComponent {
   searchTerm: string = '';
   filteredPokemons: Pokemon[] = [];
   selectedIndex: number = -1;
+  private needsScroll: boolean = false;
+
 
 
   constructor(private pokedexService: PokedexService) {}
@@ -37,6 +39,8 @@ export class SearchBarComponent {
           pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase())
         );
         this.selectedIndex = this.filteredPokemons.length > 0 ? 0 : -1;
+        console.log(this.selectedIndex);
+
       });
     } else {
       this.filteredPokemons = [];
@@ -48,14 +52,30 @@ export class SearchBarComponent {
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if (event.key === 'ArrowDown') {
-      event.preventDefault();
       this.selectedIndex = (this.selectedIndex + 1) % this.filteredPokemons.length;
+      this.needsScroll = true;
+
     } else if (event.key === 'ArrowUp') {
-      event.preventDefault();
       this.selectedIndex = (this.selectedIndex - 1 + this.filteredPokemons.length) % this.filteredPokemons.length;
+      this.needsScroll = true;
+
     } else if (event.key === 'Enter' && this.selectedIndex >= 0) {
-      event.preventDefault();
       this.selectPokemon(this.filteredPokemons[this.selectedIndex]);
+    }
+  }
+
+  ngAfterViewChecked() {
+    if (this.needsScroll) {
+      this.scrollToSelected();
+      this.needsScroll = false;
+    }
+  }
+
+  scrollToSelected() {
+    const selectedElement = document.querySelector('.search-results .selected');
+    if (selectedElement) {
+      selectedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      console.log(selectedElement);
     }
   }
 

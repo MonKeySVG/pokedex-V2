@@ -46,6 +46,8 @@
   padding: 0;
   margin: 0;
   border-radius: 0 0 12px 12px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .search-results p {
@@ -83,10 +85,6 @@ h6, p {
 
 .result-container {
   display: flex;
-}
-
-.result-container:not(:first-child) {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .types-container {
