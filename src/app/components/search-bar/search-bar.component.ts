@@ -3,6 +3,7 @@ import {Pokemon} from '../../models/pokemon.model';
 import {PokedexService} from '../../services/pokedex.service';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -24,7 +25,7 @@ export class SearchBarComponent {
 
 
 
-  constructor(private pokedexService: PokedexService) {}
+  constructor(private pokedexService: PokedexService, private router: Router) {}
 
 
   closeSearchBar() {
@@ -80,7 +81,7 @@ export class SearchBarComponent {
   }
 
   selectPokemon(pokemon: Pokemon) {
-    // Handle the selection of a Pokemon (e.g., navigate to the Pokemon details page)
-    console.log('Selected Pokemon:', pokemon);
+    this.closeSearchBar();
+    this.router.navigate(['/pokemon', pokemon.id]);
   }
 }
