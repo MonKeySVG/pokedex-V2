@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {SearchBarComponent} from '../search-bar/search-bar.component';
 import {NgIf} from '@angular/common';
 
@@ -20,5 +20,17 @@ export class HeaderComponent {
 
   closeSearchBar() {
     this.isSearchBarOpen = false;
+  }
+
+  toggleSearchBar() {
+    this.isSearchBarOpen = !this.isSearchBarOpen;
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'k' && event.metaKey) { // Command+K
+      event.preventDefault();
+      this.toggleSearchBar();
+    }
   }
 }

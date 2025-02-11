@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostListener, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostListener, Output, ViewChild} from '@angular/core';
 import {Pokemon} from '../../models/pokemon.model';
 import {PokedexService} from '../../services/pokedex.service';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
@@ -18,6 +18,7 @@ import {Router} from '@angular/router';
 })
 export class SearchBarComponent {
   @Output() close = new EventEmitter<void>();
+  @ViewChild('searchInput') searchInput!: ElementRef;
   searchTerm: string = '';
   filteredPokemons: Pokemon[] = [];
   selectedIndex: number = -1;
@@ -86,5 +87,9 @@ export class SearchBarComponent {
   selectPokemon(pokemon: Pokemon) {
     this.closeSearchBar();
     this.router.navigate(['/pokemon', pokemon.id]);
+  }
+
+  ngAfterViewInit() {
+    this.searchInput.nativeElement.focus();
   }
 }
