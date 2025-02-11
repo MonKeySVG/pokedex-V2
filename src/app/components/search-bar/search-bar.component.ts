@@ -40,14 +40,23 @@ export class SearchBarComponent {
         this.filteredPokemons = pokemons.filter(pokemon =>
           pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase())
         );
+
+        this.filteredPokemons.sort((a, b) => {
+          const aName = a.name.toLowerCase();
+          const bName = b.name.toLowerCase();
+          const searchTerm = this.searchTerm.toLowerCase();
+
+          if (aName === searchTerm) return -1;
+          if (bName === searchTerm) return 1;
+          return aName.localeCompare(bName);
+        });
+
         this.selectedIndex = this.filteredPokemons.length > 0 ? 0 : -1;
         console.log(this.selectedIndex);
-
       });
     } else {
       this.filteredPokemons = [];
       this.selectedIndex = -1;
-
     }
   }
 

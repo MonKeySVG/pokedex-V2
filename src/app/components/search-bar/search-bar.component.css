@@ -125,3 +125,7 @@ h6, p {
   width: 43px;
   height: 43px;
 }
+
+.pokemon-name {
+  text-transform: capitalize;
+}

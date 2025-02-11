@@ -4,7 +4,6 @@ import {PokedexComponent} from '../pokedex/pokedex.component';
 @Component({
   selector: 'app-about-page',
   imports: [
-    PokedexComponent
   ],
   templateUrl: './about-page.component.html',
   styleUrl: './about-page.component.css'
