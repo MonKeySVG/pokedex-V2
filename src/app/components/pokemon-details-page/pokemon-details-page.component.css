@@ -1,10 +1,12 @@
 .page-container {
   display: flex;
   align-items: center;
+  margin-top: 5rem;
 }
 
 .left-part {
   flex: 2;
+  position: relative;
 }
 
 .right-part {
@@ -13,10 +15,16 @@
 
 .jap-name {
   position: absolute;
-  font-size: 10vw;
+  font-size: 12vw;
   font-weight: 900;
   z-index: -1;
-  opacity: 0.8;
+  opacity: 0.6;
+  top: -200px;
+  right: 50px;
+  white-space: nowrap;
+
+
+
 }
 
 .base-info-container h1 {
@@ -68,6 +76,32 @@
   flex: 5;
 }
 
+.description-container {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
 .description-container h6 {
   font-weight: 300;
+  margin: 0;
+}
+
+.additional-info-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.additional-info-container div {
+  flex: 1;
+
+  padding: 1rem;
+  border-radius: 12px;
+  margin-block: 1rem;
+}
+
+.additional-info-container div p {
+  margin: 0;
+  font-weight: 200;
+  opacity: 0.6;
 }

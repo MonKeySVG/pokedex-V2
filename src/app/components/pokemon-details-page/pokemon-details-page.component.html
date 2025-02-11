@@ -1,6 +1,7 @@
 <div class="page-container">
-  <h1 class="jap-name" [style.color]="pokemon.color">{{pokemon.japName}}</h1>
   <div class="left-part">
+    <h1 class="jap-name" [style.color]="pokemon.color">{{pokemon.japName}}</h1>
+
     <div class="img-container">
       <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}">
     </div>
@@ -26,19 +27,20 @@
       <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
     </div>
 
-    <div class="description-container">
+    <div class="description-container shadow">
       <h6>{{pokemon.description}}</h6>
     </div>
 
     <div class="additional-info-container">
-      <p>Origin generation : {{pokemon.generation}}</p>
-      <p>Habitat : {{pokemon.habitat}}</p>
-
-      <div class="size-container">
-        <p>Height : {{pokemon.height}}m</p>
-        <p>Weight : {{pokemon.weight}}kg</p>
+      <div class="additional-info shadow">
+        <p><strong>Origin generation:</strong> {{pokemon.generation}}</p>
+        <p><strong>Habitat:</strong> {{pokemon.habitat}}</p>
       </div>
 
+      <div class="size-container shadow">
+        <p><strong>Height:</strong> {{pokemon.height}}m</p>
+        <p><strong>Weight:</strong> {{pokemon.weight}}kg</p>
+      </div>
     </div>
 
 
