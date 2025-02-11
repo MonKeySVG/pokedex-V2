@@ -63,6 +63,9 @@ export class SearchBarComponent {
     } else if (event.key === 'Enter' && this.selectedIndex >= 0) {
       this.selectPokemon(this.filteredPokemons[this.selectedIndex]);
     }
+    else if (event.key === 'Escape') {
+      this.closeSearchBar();
+    }
   }
 
   ngAfterViewChecked() {

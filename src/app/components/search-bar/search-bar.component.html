@@ -23,7 +23,7 @@
     </div>
 
     <div *ngIf="filteredPokemons.length > 0" class="search-results blurred-bg shadow">
-      <div *ngFor="let pokemon of filteredPokemons; let i = index" class="result-container" [ngClass]="{'selected': i === selectedIndex}">
+      <div *ngFor="let pokemon of filteredPokemons; let i = index" class="result-container" [ngClass]="{'selected': i === selectedIndex}" (click)="selectPokemon(pokemon)">
         <p>{{ pokemon.name }}</p>
         <div class="types-container">
           <div class="types">
