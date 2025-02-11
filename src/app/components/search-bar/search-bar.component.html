@@ -24,6 +24,9 @@
 
     <div *ngIf="filteredPokemons.length > 0" class="search-results blurred-bg shadow">
       <div *ngFor="let pokemon of filteredPokemons; let i = index" class="result-container" [ngClass]="{'selected': i === selectedIndex}" (click)="selectPokemon(pokemon)">
+        <div class="img-container">
+          <img src="{{pokemon.spriteUrl}}" alt="{{pokemon.name}}">
+        </div>
         <p>{{ pokemon.name }}</p>
         <div class="types-container">
           <div class="types">

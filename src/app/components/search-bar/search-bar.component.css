@@ -51,8 +51,7 @@
 }
 
 .search-results p {
-  padding: 1em 3em;
-  padding-right: 1em;
+  padding: 1em 1em;
   border-bottom: 1px;
 }
 
@@ -108,4 +107,16 @@ h6, p {
 .search-results .selected, .search-results .result-container:hover {
   background-color: hsl(240, 7%, 11%);
   color: white;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2em;
+}
+
+.img-container img {
+  width: 43px;
+  height: 43px;
 }
