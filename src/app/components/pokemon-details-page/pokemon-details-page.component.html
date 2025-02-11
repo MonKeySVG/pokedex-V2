@@ -12,10 +12,20 @@
     <div class="base-info-container">
       <p class="id">#{{ pokemon.id }}</p>
       <div class="name-container">
-        <h1>{{ pokemon.name }}</h1>
-        <div class="status-container">
-          <!--Is legendary tout ça-->
-        </div>
+        <h1>{{ pokemon.name }}
+          <span *ngIf="pokemon.isLegendary" class="status-container legendary">
+            Lengdary
+          </span>
+
+          <span *ngIf="pokemon.isMythical" class="status-container mythical">
+            Mythical
+          </span>
+
+          <span *ngIf="pokemon.isBaby" class="status-container baby">
+            baby
+          </span>
+        </h1>
+
 
       </div>
     </div>

@@ -94,6 +94,7 @@
 
 .additional-info-container div {
   flex: 1;
+  text-align: center;
 
   padding: 1rem;
   border-radius: 12px;
@@ -105,3 +106,38 @@
   font-weight: 200;
   opacity: 0.6;
 }
+
+.name-container h1 {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.name-container span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 14px;
+
+}
+
+.name-container .mythical {
+  background-color: red;
+  box-shadow: 0 0px 25px 0px red
+
+}
+
+.name-container .legendary {
+  background-color: yellow;
+  box-shadow: 0 0px 25px 0px yellow
+
+}
+
+.name-container .baby {
+  background-color: pink;
+  box-shadow: 0 0px 25px 0px pink
+
+}
+
+
