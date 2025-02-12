@@ -1,10 +1,10 @@
 <div class="page-container">
   <div class="left-right-container">
     <div class="left-part">
-      <h1 class="jap-name" [style.color]="pokemon.color">{{pokemon.japName}}</h1>
+      <h1 class="jap-name" [style.color]="pokemon.color" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 0px ' + 'color-mix(in srgb, ' + pokemon.color + ', transparent 70%))'">{{pokemon.japName}}</h1>
 
       <div class="img-container">
-        <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 20px ' + 'color-mix(in srgb, ' + pokemon.color + ', transparent 50%))'">
+        <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(0px 0px 5px ' + 'color-mix(in srgb, ' + pokemon.color + ', transparent 0%))'">
       </div>
     </div>
 
@@ -68,7 +68,7 @@
   </div>
 
   <div class="bottom-container">
-    <div class="previous-pokemon shadow pokemon-container">
+    <div *ngIf="previousPokemon" class="previous-pokemon shadow pokemon-container">
       <h1 class="lil-jap-name">{{previousPokemon.japName}}</h1>
       <div class="pokemon-info-container">
         <div class="left">
@@ -94,7 +94,7 @@
     </div>
 
 
-    <div class="previous-pokemon shadow pokemon-container">
+    <div *ngIf="nextPokemon" class="next-pokemon shadow pokemon-container">
       <h1 class="lil-jap-name">{{nextPokemon.japName}}</h1>
       <div class="pokemon-info-container">
         <div class="left">
