@@ -32,6 +32,7 @@
 
 .pokemon img {
   max-height: 160px;
+  filter: saturate(1.5);
 
 }
 

@@ -16,6 +16,7 @@
 .left-part .img-container img {
   width: 60%;
   height: auto;
+
 }
 
 .bottom-container {
@@ -93,6 +94,7 @@
 .bottom-container .img-container img {
   width: 8rem;
   height: 8rem;
+  filter: saturate(1.5);
 }
 
 .jap-name {
@@ -100,7 +102,7 @@
   font-size: 12vw;
   font-weight: 900;
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.8;
   top: -200px;
   right: 50px;
   white-space: nowrap;

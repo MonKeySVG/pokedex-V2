@@ -4,7 +4,7 @@
       <h1 class="jap-name" [style.color]="pokemon.color">{{pokemon.japName}}</h1>
 
       <div class="img-container">
-        <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}">
+        <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 20px ' + 'color-mix(in srgb, ' + pokemon.color + ', transparent 50%))'">
       </div>
     </div>
 
