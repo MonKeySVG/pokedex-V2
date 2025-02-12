@@ -14,7 +14,9 @@ export class PokedexService {
 
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.loadPokemonsFromLocalStorage();
+  }
 
   getPokemonByName(name: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${name}`);
@@ -63,6 +65,7 @@ export class PokedexService {
           const stats = pokemon.stats.map((stat: any) => stat.base_stat);
           return new Pokemon(id, name, japName, color, isBaby, isMythical, isLegendary, description, habitat, types, generation, spriteUrl, spriteArtworkUrl, spriteShowdownUrl, height, weight, stats);        });
         this.pokemonsSubject.next(pokemons);
+        this.savePokemonsToLocalStorage(pokemons);
       })
     ).subscribe();
   }
@@ -75,5 +78,16 @@ export class PokedexService {
     if (pokemonId <= 649) return 5;
     if (pokemonId <= 721) return 6;
     return 7;
+  }
+
+  private savePokemonsToLocalStorage(pokemons: Pokemon[]): void {
+    localStorage.setItem('pokemons', JSON.stringify(pokemons));
+  }
+
+  private loadPokemonsFromLocalStorage(): void {
+    const pokemons = localStorage.getItem('pokemons');
+    if (pokemons) {
+      this.pokemonsSubject.next(JSON.parse(pokemons));
+    }
   }
 }

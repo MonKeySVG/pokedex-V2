@@ -210,28 +210,47 @@
 
 .name-container span {
   font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  margin-left: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+  padding: 0.2rem 0.8rem;
+  margin-left: 1rem;
   border-radius: 14px;
+  color: rgba(0, 0, 0, 0.65);
 
+  box-shadow:
+    inset 0 0 50px var(--color1),
+    inset 20px 0 60px var(--color2),
+    inset -20px 0 60px var(--color3),
+    inset 20px 0 300px var(--color2),
+    inset -20px 0 300px var(--color3),
+    0 0 10px var(--color1),
+    -10px 0 20px var(--color2),
+    10px 0 20px var(--color3);
 }
+
+
 
 .name-container .mythical {
-  background-color: red;
-  box-shadow: 0 0px 25px 0px red
+  --color1: #ff0000; /* Red */
+  --color2: violet;
+  --color3: #ff00ff; /* Magenta */
 
 }
+
+
 
 .name-container .legendary {
-  background-color: yellow;
-  box-shadow: 0 0px 25px 0px yellow
+  --color1: #fff; /* White */
+  --color2: violet;
+  --color3: #0ff; /* Cyan */
 
 }
 
+
 .name-container .baby {
-  background-color: pink;
-  box-shadow: 0 0px 25px 0px pink
+  --color1: #ffb6c1; /* Light Pink */
+  --color2: #ff69b4; /* Hot Pink */
+  --color3: #ff1493; /* Deep Pink */
 
 }
 
