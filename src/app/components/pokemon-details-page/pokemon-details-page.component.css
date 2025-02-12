@@ -45,11 +45,12 @@
 
 .bottom-container h6 {
   margin-bottom: 0.6rem;
+  text-transform: capitalize;
 }
 
 .bottom-container .pokemon-container {
   flex: 1;
-  border-radius: 12px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,8 +133,8 @@
 
 .types p {
   padding: 0.3em 0.8em;
-  border-radius: 8px;
-  font-size: 0.7em;
+  border-radius: 10px;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: capitalize;
 }
