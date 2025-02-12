@@ -39,13 +39,13 @@
       </div>
 
       <div class="description-container shadow">
-        <h6>{{pokemon.description}}</h6>
+        <p>{{pokemon.description}}</p>
       </div>
 
       <div class="additional-info-container">
         <div class="additional-info shadow">
           <p><strong>Origin generation:</strong> {{pokemon.generation}}</p>
-          <p><strong>Habitat:</strong> {{pokemon.habitat}}</p>
+          <p *ngIf="pokemon.habitat"><strong>Habitat:</strong> {{pokemon.habitat}}</p>
         </div>
 
         <div class="size-container shadow">

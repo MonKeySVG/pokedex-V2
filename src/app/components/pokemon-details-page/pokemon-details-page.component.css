@@ -17,6 +17,10 @@
   width: 60%;
   height: auto;
 
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: crisp-edges; /* Safari, Chrome, Edge */
+
 }
 
 .bottom-container {
@@ -51,6 +55,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .lil-jap-name {
@@ -165,9 +170,10 @@
   margin-top: 1rem;
 }
 
-.description-container h6 {
+.description-container p {
   font-weight: 300;
   margin: 0;
+  opacity: 0.6;
 }
 
 .additional-info-container {
@@ -188,6 +194,12 @@
   margin: 0;
   font-weight: 200;
   opacity: 0.6;
+}
+
+.additional-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .name-container h1 {
