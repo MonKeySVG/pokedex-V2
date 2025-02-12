@@ -13,6 +13,11 @@
   flex: 1;
 }
 
+.left-part .img-container img {
+  width: 60%;
+  height: auto;
+}
+
 .jap-name {
   position: absolute;
   font-size: 12vw;
@@ -22,9 +27,6 @@
   top: -200px;
   right: 50px;
   white-space: nowrap;
-
-
-
 }
 
 .base-info-container h1 {
