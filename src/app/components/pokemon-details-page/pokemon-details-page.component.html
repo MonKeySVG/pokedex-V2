@@ -68,7 +68,7 @@
   </div>
 
   <div class="bottom-container">
-    <div *ngIf="previousPokemon" class="previous-pokemon shadow pokemon-container">
+    <div *ngIf="previousPokemon" class="previous-pokemon shadow pokemon-container" (click)="navigateToId(previousPokemon.id)">
       <h1 class="lil-jap-name">{{previousPokemon.japName}}</h1>
       <div class="pokemon-info-container">
         <div class="left">
@@ -94,7 +94,7 @@
     </div>
 
 
-    <div *ngIf="nextPokemon" class="next-pokemon shadow pokemon-container">
+    <div *ngIf="nextPokemon" class="next-pokemon shadow pokemon-container" (click)="navigateToId(nextPokemon.id)">
       <h1 class="lil-jap-name">{{nextPokemon.japName}}</h1>
       <div class="pokemon-info-container">
         <div class="left">

@@ -3,6 +3,7 @@ import {Pokemon} from '../../models/pokemon.model';
 import {ActivatedRoute} from '@angular/router';
 import {PokedexService} from '../../services/pokedex.service';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-details-page',
@@ -23,7 +24,8 @@ export class PokemonDetailsPageComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private pokedexService: PokedexService
+    private pokedexService: PokedexService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -43,5 +45,9 @@ export class PokemonDetailsPageComponent {
         }
       });
     });
+  }
+
+  navigateToId(id:number): void {
+    this.router.navigate(['/pokemon', id]);
   }
 }
