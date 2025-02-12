@@ -1,10 +1,10 @@
 <div class="page-container">
   <div class="left-right-container">
     <div class="left-part">
-      <h1 class="jap-name" [style.color]="pokemon.color" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 0px ' + 'color-mix(in srgb, ' + pokemon.color + ', transparent 70%))'">{{pokemon.japName}}</h1>
+      <h1 class="jap-name" [style.color]="pokemon.color" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 0px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'lightgrey' : pokemon.color) + ', transparent 70%))'">{{pokemon.japName}}</h1>
 
       <div class="img-container">
-        <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(0px 0px 5px ' + 'color-mix(in srgb, ' + pokemon.color + ', transparent 0%))'">
+        <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(0px 0px 5px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'white' : pokemon.color) + ', transparent 0%))'">
       </div>
     </div>
 
@@ -45,7 +45,7 @@
       <div class="additional-info-container">
         <div class="additional-info shadow">
           <p><strong>Origin generation:</strong> {{pokemon.generation}}</p>
-          <p *ngIf="pokemon.habitat"><strong>Habitat:</strong> {{pokemon.habitat}}</p>
+          <p *ngIf="pokemon.habitat"><strong>Habitat:</strong> <span class="capitalize"> {{pokemon.habitat}}</span></p>
         </div>
 
         <div class="size-container shadow">

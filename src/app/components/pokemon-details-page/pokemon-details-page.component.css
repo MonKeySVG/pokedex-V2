@@ -1,3 +1,7 @@
+.capitalize {
+  text-transform: capitalize;
+}
+
 .left-right-container {
   display: flex;
   align-items: center;
@@ -17,9 +21,9 @@
   width: 60%;
   height: auto;
 
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges; /* Firefox */
-  image-rendering: crisp-edges; /* Safari, Chrome, Edge */
+  /*image-rendering: pixelated;*/
+  /*image-rendering: -moz-crisp-edges; !* Firefox *!*/
+  /*image-rendering: crisp-edges; !* Safari, Chrome, Edge *!*/
 
 }
 
@@ -133,7 +137,7 @@
 
 .types p {
   padding: 0.3em 0.8em;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   text-transform: capitalize;
@@ -204,8 +208,6 @@
 }
 
 .name-container h1 {
-  display: flex;
-  align-items: center;
   text-transform: uppercase;
 }
 
@@ -215,6 +217,7 @@
   letter-spacing: 0.1rem;
   padding: 0.2rem 0.8rem;
   margin-left: 1rem;
+  vertical-align: middle;
   border-radius: 14px;
   color: rgba(0, 0, 0, 0.65);
 

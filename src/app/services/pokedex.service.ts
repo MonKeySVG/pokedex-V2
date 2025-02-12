@@ -61,7 +61,7 @@ export class PokedexService {
           const spriteArtworkUrl = pokemon.sprites.other['official-artwork'].front_default;
           const spriteShowdownUrl = pokemon.sprites.other.showdown.front_default;
           const height = pokemon.height / 10;
-          const weight = pokemon.weight;
+          const weight = pokemon.weight / 10;
           const stats = pokemon.stats.map((stat: any) => stat.base_stat);
           return new Pokemon(id, name, japName, color, isBaby, isMythical, isLegendary, description, habitat, types, generation, spriteUrl, spriteArtworkUrl, spriteShowdownUrl, height, weight, stats);        });
         this.pokemonsSubject.next(pokemons);
