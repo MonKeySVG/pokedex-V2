@@ -1,4 +1,4 @@
-.page-container {
+.left-right-container {
   display: flex;
   align-items: center;
   margin-top: 5rem;
@@ -16,6 +16,83 @@
 .left-part .img-container img {
   width: 60%;
   height: auto;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  margin-top: 2rem;
+  padding-inline: 12rem;
+}
+
+.bottom-container p, .bottom-container h6 {
+  margin: 0;
+}
+
+.bottom-container p {
+  opacity: 0.6;
+}
+
+.types p {
+  opacity: 1;
+}
+
+.bottom-container h6 {
+  margin-bottom: 0.6rem;
+}
+
+.bottom-container .pokemon-container {
+  flex: 1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lil-jap-name {
+  margin: 0;
+  position: absolute;
+  left: -2rem;
+  font-size: 10rem;
+  white-space: nowrap;
+  opacity: 0.03;
+}
+
+.bottom-container .pokemon-info-container {
+  padding: 2rem 4rem;
+
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  z-index: 2;
+}
+
+.bottom-container .left {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-container .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bottom-container .pokemon-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-container .types {
+  display: flex;
+}
+
+.bottom-container .img-container img {
+  width: 8rem;
+  height: 8rem;
 }
 
 .jap-name {
@@ -69,13 +146,15 @@
   margin-block: 0.5rem;
 }
 
-.stat-container p:last-child {
+.stat-container p:first-child {
   text-align: end;
+
 }
 
 .stat-container meter {
   width: 50%;
   flex: 5;
+  margin-inline: 1rem;
 }
 
 .description-container {

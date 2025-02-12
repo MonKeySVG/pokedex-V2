@@ -16,6 +16,8 @@ import {NgClass, NgForOf, NgIf} from '@angular/common';
 })
 export class PokemonDetailsPageComponent {
   pokemon!: Pokemon;
+  nextPokemon!: Pokemon;
+  previousPokemon!: Pokemon;
   statNames: string[] = ['HP', 'ATK', 'DEF', 'ATK SP', 'DEF SP', 'SPD'];
 
 
@@ -29,6 +31,16 @@ export class PokemonDetailsPageComponent {
       const id = +params.get('id')!;
       this.pokedexService.pokemons$.subscribe(pokemons => {
         this.pokemon = pokemons.find(p => p.id === id)!;
+
+        const foundNextPokemon = pokemons.find(p => p.id === id + 1);
+        if (foundNextPokemon) {
+          this.nextPokemon = foundNextPokemon;
+        }
+
+        const foundPreviousPokemon = pokemons.find(p => p.id === id - 1);
+        if (foundPreviousPokemon) {
+          this.previousPokemon = foundPreviousPokemon;
+        }
       });
     });
   }

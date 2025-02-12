@@ -1,67 +1,126 @@
 <div class="page-container">
-  <div class="left-part">
-    <h1 class="jap-name" [style.color]="pokemon.color">{{pokemon.japName}}</h1>
+  <div class="left-right-container">
+    <div class="left-part">
+      <h1 class="jap-name" [style.color]="pokemon.color">{{pokemon.japName}}</h1>
 
-    <div class="img-container">
-      <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}">
+      <div class="img-container">
+        <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}">
+      </div>
     </div>
-  </div>
 
-  <div class="right-part">
+    <div class="right-part">
 
-    <div class="base-info-container">
-      <p class="id">#{{ pokemon.id }}</p>
-      <div class="name-container">
-        <h1>{{ pokemon.name }}
-          <span *ngIf="pokemon.isLegendary" class="status-container legendary">
+      <div class="base-info-container">
+        <p class="id">#{{ pokemon.id }}</p>
+        <div class="name-container">
+          <h1>{{ pokemon.name }}
+            <span *ngIf="pokemon.isLegendary" class="status-container legendary">
             Lengdary
           </span>
 
-          <span *ngIf="pokemon.isMythical" class="status-container mythical">
+            <span *ngIf="pokemon.isMythical" class="status-container mythical">
             Mythical
           </span>
 
-          <span *ngIf="pokemon.isBaby" class="status-container baby">
+            <span *ngIf="pokemon.isBaby" class="status-container baby">
             baby
           </span>
-        </h1>
+          </h1>
 
 
+        </div>
       </div>
+
+
+
+      <div class="types">
+        <p *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
+        <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
+      </div>
+
+      <div class="description-container shadow">
+        <h6>{{pokemon.description}}</h6>
+      </div>
+
+      <div class="additional-info-container">
+        <div class="additional-info shadow">
+          <p><strong>Origin generation:</strong> {{pokemon.generation}}</p>
+          <p><strong>Habitat:</strong> {{pokemon.habitat}}</p>
+        </div>
+
+        <div class="size-container shadow">
+          <p><strong>Height:</strong> {{pokemon.height}}m</p>
+          <p><strong>Weight:</strong> {{pokemon.weight}}kg</p>
+        </div>
+      </div>
+
+
+
+      <div class="stats-container">
+        <div *ngFor="let stat of pokemon.stats; let i = index" class="stat-container">
+          <p class="stat-name">{{statNames[i]}}</p>
+          <meter [value]="stat" [max]="255"></meter>
+          <p class="stat-value">{{stat}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bottom-container">
+    <div class="previous-pokemon shadow pokemon-container">
+      <h1 class="lil-jap-name">{{previousPokemon.japName}}</h1>
+      <div class="pokemon-info-container">
+        <div class="left">
+
+          <div class="img-container">
+            <img src="{{ previousPokemon.spriteArtworkUrl }}" alt="{{ previousPokemon.name }}">
+          </div>
+        </div>
+
+        <div class="right">
+          <div class="pokemon-info">
+            <p>#{{previousPokemon.id}}</p>
+            <h6>{{ previousPokemon.name }}</h6>
+            <div class="types">
+              <p *ngIf="previousPokemon.types.length > 0" [ngClass]="'type-' + previousPokemon.types[0]" class="shadow">{{previousPokemon.types[0]}}</p>
+              <p *ngIf="previousPokemon.types.length > 1" [ngClass]="'type-' + previousPokemon.types[1]" class="shadow">{{previousPokemon.types[1]}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
 
+    <div class="previous-pokemon shadow pokemon-container">
+      <h1 class="lil-jap-name">{{nextPokemon.japName}}</h1>
+      <div class="pokemon-info-container">
+        <div class="left">
 
-    <div class="types">
-      <p *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
-      <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
-    </div>
+          <div class="img-container">
+            <img src="{{ nextPokemon.spriteArtworkUrl }}" alt="{{ nextPokemon.name }}">
+          </div>
+        </div>
 
-    <div class="description-container shadow">
-      <h6>{{pokemon.description}}</h6>
-    </div>
-
-    <div class="additional-info-container">
-      <div class="additional-info shadow">
-        <p><strong>Origin generation:</strong> {{pokemon.generation}}</p>
-        <p><strong>Habitat:</strong> {{pokemon.habitat}}</p>
+        <div class="right">
+          <div class="pokemon-info">
+            <p>#{{nextPokemon.id}}</p>
+            <h6>{{ nextPokemon.name }}</h6>
+            <div class="types">
+              <p *ngIf="nextPokemon.types.length > 0" [ngClass]="'type-' + nextPokemon.types[0]" class="shadow">{{nextPokemon.types[0]}}</p>
+              <p *ngIf="nextPokemon.types.length > 1" [ngClass]="'type-' + nextPokemon.types[1]" class="shadow">{{nextPokemon.types[1]}}</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="size-container shadow">
-        <p><strong>Height:</strong> {{pokemon.height}}m</p>
-        <p><strong>Weight:</strong> {{pokemon.weight}}kg</p>
-      </div>
-    </div>
 
-
-
-    <div class="stats-container">
-      <div *ngFor="let stat of pokemon.stats; let i = index" class="stat-container">
-        <p class="stat-name">{{statNames[i]}}</p>
-        <meter [value]="stat" [max]="255"></meter>
-        <p class="stat-value">{{stat}}</p>
-      </div>
     </div>
 
   </div>
+
 </div>
+
+

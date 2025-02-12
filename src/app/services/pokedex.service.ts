@@ -29,7 +29,7 @@ export class PokedexService {
   }
 
   getAllPokemons(): void {
-    if (this.pokemonsSubject.getValue().length > 0) {
+    if (this.pokemonsSubject.getValue().length >= 721) {
       return;
     }
 
