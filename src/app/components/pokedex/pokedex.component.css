@@ -53,11 +53,14 @@ li.animate {
 .loader:after {
   animation-delay: -0.75s;
 }
+
 @keyframes l11 {
   100% {
     transform: rotate(360deg);
   }
 }
+
+
 
 
 @keyframes fadeInUp {

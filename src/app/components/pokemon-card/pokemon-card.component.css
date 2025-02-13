@@ -50,17 +50,33 @@
   text-transform: capitalize;
 }
 
+.pokemon-card-front {
+  animation: blurInDown 0.2s ease-out forwards;
+}
+
+.pokemon-card-front p {
+  animation: blurInDown 0.2s ease-out forwards
+}
+
+.pokemon-card-front img {
+  opacity: 0;
+  animation: blurInDown 0.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
 .pokemon-card-back {
   position: relative;
   width: 100%;
   height: 100%;
+  animation: blurInUp 0.2s ease-out forwards;
 }
 
 .pokemon-card-back img {
   position: absolute;
-  transform: translate(-50%, 20%);
   z-index: 1;
-  opacity: 0.1;
+  opacity: 0;
+  animation: zoomIn 0.2s ease-out forwards;
+  animation-delay: 0.3s;
 }
 
 .pokemon-card-back .stats {
@@ -127,7 +143,45 @@
 
 }
 
+@keyframes blurInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
 
+@keyframes blurInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0) translate(-50%, 200%);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    transform: scale(1) translate(-50%, 20%);
+    opacity: 0.1;
+    filter: blur(0);
+  }
+
+}
 
 
 
