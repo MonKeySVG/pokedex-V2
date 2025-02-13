@@ -77,6 +77,8 @@
   opacity: 0;
   animation: zoomIn 0.2s ease-out forwards;
   animation-delay: 0.3s;
+  transform: scale(1) translate(-50%, 20%);
+
 }
 
 .pokemon-card-back .stats {
@@ -171,12 +173,10 @@
 
 @keyframes zoomIn {
   from {
-    transform: scale(0) translate(-50%, 200%);
     opacity: 0;
     filter: blur(4px);
   }
   to {
-    transform: scale(1) translate(-50%, 20%);
     opacity: 0.1;
     filter: blur(0);
   }
