@@ -1,4 +1,9 @@
-<ul>
+<div *ngIf="isLoading" class="loader-container">
+  <div class="loader"></div>
+
+</div>
+
+<ul [ngClass]="isLoading? 'pokemons-loading' : 'pokemons'">
   <li *ngFor="let pokemon of pokemons" appAnimateOnScroll>
     <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
   </li>

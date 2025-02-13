@@ -18,6 +18,48 @@ li.animate {
   animation: fadeInUp 0.2s ease-out forwards;
 }
 
+.pokemons-loading {
+  display: none;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  box-shadow: 0 0 0 5px lightgrey inset;
+  border-radius: 50%;
+  position: relative;
+  animation: l11 7s infinite;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 3px);
+  left: calc(50% - 12.5px);
+  box-shadow: inherit;
+  width: 25px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform-origin: 50% -28px;
+  animation: l11 1.5s infinite;
+}
+.loader:after {
+  animation-delay: -0.75s;
+}
+@keyframes l11 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
