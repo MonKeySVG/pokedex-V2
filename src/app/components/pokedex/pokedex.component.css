@@ -10,4 +10,19 @@ ul {
 li {
   margin: 0;
   padding: 0;
+  opacity: 0;
+
+}
+
+li.animate {
+  animation: fadeInUp 0.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
