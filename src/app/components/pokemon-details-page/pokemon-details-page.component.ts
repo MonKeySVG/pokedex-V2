@@ -45,9 +45,26 @@ export class PokemonDetailsPageComponent {
         }
       });
     });
+    console.log(this.pokemon.sensitivities);
   }
 
   navigateToId(id:number): void {
     this.router.navigate(['/pokemon', id]);
   }
+
+  getSensitivityKeys(): string[] {
+    return Object.keys(this.pokemon.sensitivities);
+  }
+
+  // getResistances(): { [key: string]: number } {
+  //   return Object.fromEntries(
+  //     Object.entries(this.pokemon.sensitivities).filter(([type, value]) => value < 1)
+  //   );
+  // }
+  //
+  // getWeaknesses(): { [key: string]: number } {
+  //   return Object.fromEntries(
+  //     Object.entries(this.pokemon.sensitivities).filter(([type, value]) => value > 1)
+  //   );
+  // }
 }

@@ -45,7 +45,6 @@ export class PokedexComponent {
 
   onImageLoad() {
     this.imagesLoaded++;
-    console.log(this.imagesLoaded);
     if (this.imagesLoaded === this.pokemons.length) {
       this.isLoading = false;
     }

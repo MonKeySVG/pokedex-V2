@@ -14,6 +14,7 @@ export class Pokemon {
   habitat: string;
 
   types: string[];
+  sensitivities: { [key: string]: number };
   generation: number;
 
 
@@ -29,7 +30,7 @@ export class Pokemon {
 
 
 
-  constructor(id: number, name: string, japName: string, color: string, isBaby: boolean, isMythical: boolean, isLegendary: boolean, description: string, habitat: string, types: string[], generation: number, spriteUrl: string, spriteArtworkUrl: string, spriteShowdownUrl: string, height: number, weight: number, stats: number[]) {
+  constructor(id: number, name: string, japName: string, color: string, isBaby: boolean, isMythical: boolean, isLegendary: boolean, description: string, habitat: string, types: string[], sensitivities: { [key: string]: number }, generation: number, spriteUrl: string, spriteArtworkUrl: string, spriteShowdownUrl: string, height: number, weight: number, stats: number[]) {
     this.id = id;
     this.name = name;
     this.japName = japName;
@@ -40,6 +41,7 @@ export class Pokemon {
     this.description = description;
     this.habitat = habitat;
     this.types = types;
+    this.sensitivities = sensitivities;
     this.generation= generation;
     this.spriteUrl = spriteUrl;
     this.spriteArtworkUrl = spriteArtworkUrl;

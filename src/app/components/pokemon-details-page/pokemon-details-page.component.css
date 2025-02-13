@@ -208,6 +208,19 @@
   justify-content: center;
 }
 
+.sensitivities-container {
+  position: absolute;
+  right: 3rem;
+  bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sensitivities-container p {
+  margin: 0;
+}
+
 .name-container h1 {
   text-transform: uppercase;
 }

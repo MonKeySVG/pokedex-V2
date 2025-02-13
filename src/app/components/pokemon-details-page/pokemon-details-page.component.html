@@ -6,6 +6,25 @@
       <div class="img-container">
         <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(0px 0px 5px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'white' : pokemon.color) + ', transparent 0%))'">
       </div>
+
+      <div *ngIf="pokemon.sensitivities" class="sensitivities-container">
+        <div class="resistances">
+          <h3>Resistances</h3>
+          <div *ngFor="let type of getSensitivityKeys()" class="types sensitivities">
+            <p *ngIf="pokemon.sensitivities[type] < 1" [ngClass]="'type-'+type">
+              {{ type }} x{{ pokemon.sensitivities[type] }}
+            </p>
+          </div>
+        </div>
+        <div class="weaknesses">
+          <h3>Weaknesses</h3>
+          <div *ngFor="let type of getSensitivityKeys()" class="types sensitivities">
+            <p *ngIf="pokemon.sensitivities[type] > 1" [ngClass]="'type-'+type">
+              {{ type }} x{{ pokemon.sensitivities[type] }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="right-part">
@@ -122,5 +141,3 @@
   </div>
 
 </div>
-
-
