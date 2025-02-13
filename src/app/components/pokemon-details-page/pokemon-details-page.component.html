@@ -7,22 +7,28 @@
         <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(0px 0px 5px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'white' : pokemon.color) + ', transparent 0%))'">
       </div>
 
-      <div *ngIf="pokemon.sensitivities" class="sensitivities-container">
-        <div class="resistances">
-          <h3>Resistances</h3>
-          <div *ngFor="let type of getSensitivityKeys()" class="types sensitivities">
-            <p *ngIf="pokemon.sensitivities[type] < 1" [ngClass]="'type-'+type">
-              {{ type }} x{{ pokemon.sensitivities[type] }}
-            </p>
+      <div *ngIf="pokemon.sensitivities" class="sensitivities-container shadow">
+        <div class="resistances" *ngIf="hasResistances()">
+          <h5>Resistances</h5>
+          <div class="resistances-container types sensitivities">
+            <ng-container *ngFor="let type of getSensitivityKeys()" class="">
+              <p *ngIf="pokemon.sensitivities[type] < 1" [ngClass]="'type-'+type" class="shadow">
+                {{ type }} <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
+              </p>
+            </ng-container>
           </div>
+
         </div>
-        <div class="weaknesses">
-          <h3>Weaknesses</h3>
-          <div *ngFor="let type of getSensitivityKeys()" class="types sensitivities">
-            <p *ngIf="pokemon.sensitivities[type] > 1" [ngClass]="'type-'+type">
-              {{ type }} x{{ pokemon.sensitivities[type] }}
-            </p>
+        <div class="weaknesses" *ngIf="hasWeaknesses()">
+          <h5>Weaknesses</h5>
+          <div class="weaknesses-container types sensitivities">
+            <ng-container *ngFor="let type of getSensitivityKeys()" class="">
+              <p *ngIf="pokemon.sensitivities[type] > 1" [ngClass]="'type-'+type" class="shadow">
+                {{ type }} <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
+              </p>
+            </ng-container>
           </div>
+
         </div>
       </div>
     </div>

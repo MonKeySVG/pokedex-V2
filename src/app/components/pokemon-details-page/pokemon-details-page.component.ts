@@ -56,6 +56,14 @@ export class PokemonDetailsPageComponent {
     return Object.keys(this.pokemon.sensitivities);
   }
 
+  hasResistances(): boolean {
+    return Object.values(this.pokemon.sensitivities).some(value => value < 1);
+  }
+
+  hasWeaknesses(): boolean {
+    return Object.values(this.pokemon.sensitivities).some(value => value > 1);
+  }
+
   // getResistances(): { [key: string]: number } {
   //   return Object.fromEntries(
   //     Object.entries(this.pokemon.sensitivities).filter(([type, value]) => value < 1)
