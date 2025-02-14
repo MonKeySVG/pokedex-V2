@@ -1,9 +1,9 @@
 <div class="page-container">
   <div class="left-right-container">
     <div *ngIf="isVisible" class="left-part">
-      <h1 class="jap-name" [style.color]="pokemon.color" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 0px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'lightgrey' : pokemon.color) + ', transparent 70%))'">{{pokemon.japName}}</h1>
+      <h1 class="jap-name jelly" [style.color]="pokemon.color" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 0px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'lightgrey' : pokemon.color) + ', transparent 70%))'">{{pokemon.japName}}</h1>
 
-      <div class="img-container">
+      <div class="img-container jelly">
         <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(0px 0px 5px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'white' : pokemon.color) + ', transparent 0%))'">
       </div>
 
@@ -36,8 +36,8 @@
     <div *ngIf="isVisible" class="right-part">
 
       <div class="base-info-container">
-        <p class="id">#{{ pokemon.id }}</p>
-        <div class="name-container">
+        <p id="id" class="id">#{{ pokemon.id }}</p>
+        <div id="name" class="name-container">
           <h1>{{ pokemon.name }}
             <span *ngIf="pokemon.isLegendary" class="status-container legendary">
             Legendary

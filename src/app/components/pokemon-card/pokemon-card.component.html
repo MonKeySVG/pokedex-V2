@@ -1,5 +1,5 @@
 <div class="pokemon shadow" (click)="flipCard()">
-  <div *ngIf="!isFlipped" class="pokemon-card-front">
+  <div [ngClass]="{'visible': !isFlipped, 'not-visible': isFlipped}" class="pokemon-card-front">
     <div class="img-container">
       <img *ngIf="pokemon.spriteShowdownUrl" [src]="pokemon.spriteShowdownUrl" [alt]="pokemon.name">
     </div>
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div *ngIf="isFlipped" class="pokemon-card-back">
+  <div [ngClass]="{'not-visible': !isFlipped, 'visible': isFlipped}" class="pokemon-card-back">
     <img src="{{pokemon.spriteArtworkUrl}}" alt="{{pokemon.name}}">
     <h5>{{pokemon.name}}</h5>
     <div class="size-info">

@@ -11,12 +11,14 @@
 .left-part {
   flex: 2;
   position: relative;
-  animation: blurInDown ease-in-out 0.5s;
 }
 
 .right-part {
   flex: 1;
-  animation: blurInDown ease-in-out 0.5s;
+}
+
+.left-part .img-container {
+  animation-delay: 0.2s;
 }
 
 .left-part .img-container img {
@@ -35,7 +37,6 @@
   gap: 5rem;
   margin-top: 2rem;
   padding-inline: 12rem;
-  animation: blurInDown ease-in-out 0.5s;
 }
 
 .bottom-container p, .bottom-container h6 {
@@ -132,6 +133,22 @@
 .base-info-container p {
   margin: 0;
   opacity: 0.6;
+}
+
+#id {
+  animation: blurInLeft 0.2s ease-in-out forwards;
+}
+
+#name {
+  animation: blurInLeft 0.2s ease-in-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+#name span {
+  opacity: 0;
+  animation: blurInLeft 0.2s ease-in-out forwards;
+  animation-delay: 0.4s;
 }
 
 .types {
@@ -263,7 +280,6 @@
   font-weight: 800;
   letter-spacing: 0.1rem;
   padding: 0.2rem 0.8rem;
-  margin-left: 1rem;
   vertical-align: middle;
   border-radius: 14px;
   color: rgba(0, 0, 0, 0.65);
@@ -305,14 +321,14 @@
 
 }
 
-@keyframes blurInDown {
+@keyframes blurInLeft {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateX(20px);
     filter: blur(4px);
   }
   to {
-    opacity: 1;
+    opacity: inherit;
     transform: translateY(0);
     filter: blur(0);
   }
