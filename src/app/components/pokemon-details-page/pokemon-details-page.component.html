@@ -7,7 +7,7 @@
         <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(0px 0px 5px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'white' : pokemon.color) + ', transparent 0%))'">
       </div>
 
-      <div *ngIf="pokemon.sensitivities" class="sensitivities-container shadow">
+      <div id="sensitivities" *ngIf="pokemon.sensitivities" class="sensitivities-container shadow jelly">
         <div class="resistances" *ngIf="hasResistances()">
           <h5>Resistances</h5>
           <div class="resistances-container types sensitivities">
@@ -59,21 +59,21 @@
 
 
       <div class="types">
-        <p *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
-        <p *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
+        <p id="type-1" *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
+        <p id="type-2" *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
       </div>
 
-      <div class="description-container shadow">
+      <div id="description" class="description-container shadow jelly">
         <p>{{pokemon.description}}</p>
       </div>
 
       <div class="additional-info-container">
-        <div class="additional-info shadow">
+        <div id="ad-info" class="additional-info shadow jelly">
           <p><strong>Origin generation:</strong> {{pokemon.generation}}</p>
           <p *ngIf="pokemon.habitat"><strong>Habitat:</strong> <span class="capitalize"> {{pokemon.habitat}}</span></p>
         </div>
 
-        <div class="size-container shadow">
+        <div id="size-info" class="size-container shadow jelly">
           <p><strong>Height:</strong> {{pokemon.height}}m</p>
           <p><strong>Weight:</strong> {{pokemon.weight}}kg</p>
         </div>

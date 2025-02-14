@@ -151,6 +151,36 @@
   animation-delay: 0.4s;
 }
 
+#type-1 {
+  opacity: 0;
+  animation: blurInLeft 0.2s ease-in-out forwards;
+  animation-delay: 0.4s;
+}
+
+#type-2 {
+  opacity: 0;
+  animation: blurInLeft 0.2s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+#description {
+  animation-delay: 0.5s;
+
+}
+
+#ad-info {
+  animation-delay: 0.6s;
+
+}
+
+#size-info {
+  animation-delay: 0.7s;
+}
+
+#sensitivities {
+  animation-delay: 0.9s;
+}
+
 .types {
   display: flex;
   gap: 0.5em;
@@ -258,6 +288,7 @@
 
 .sensitivities-container {
   padding: 1rem;
+  padding-bottom: 1.4rem;
   border-radius: 12px;
   position: absolute;
   right: 3rem;

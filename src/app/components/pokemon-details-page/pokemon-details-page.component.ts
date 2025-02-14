@@ -47,7 +47,6 @@ export class PokemonDetailsPageComponent {
         }
       });
     });
-    console.log(this.pokemon.sensitivities);
   }
 
   navigateToId(id: number): void {
