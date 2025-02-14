@@ -20,6 +20,8 @@ export class PokemonDetailsPageComponent {
   nextPokemon!: Pokemon;
   previousPokemon!: Pokemon;
   statNames: string[] = ['HP', 'ATK', 'DEF', 'ATK SP', 'DEF SP', 'SPD'];
+  isVisible: boolean = true;
+
 
 
   constructor(
@@ -48,8 +50,13 @@ export class PokemonDetailsPageComponent {
     console.log(this.pokemon.sensitivities);
   }
 
-  navigateToId(id:number): void {
-    this.router.navigate(['/pokemon', id]);
+  navigateToId(id: number): void {
+    this.isVisible = false;
+    setTimeout(() => {
+      this.router.navigate(['/pokemon', id]).then(() => {
+        this.isVisible = true;
+      });
+    }, 1);
   }
 
   getSensitivityKeys(): string[] {

@@ -1,6 +1,6 @@
 <div class="page-container">
   <div class="left-right-container">
-    <div class="left-part">
+    <div *ngIf="isVisible" class="left-part">
       <h1 class="jap-name" [style.color]="pokemon.color" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 0px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'lightgrey' : pokemon.color) + ', transparent 70%))'">{{pokemon.japName}}</h1>
 
       <div class="img-container">
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="right-part">
+    <div *ngIf="isVisible" class="right-part">
 
       <div class="base-info-container">
         <p class="id">#{{ pokemon.id }}</p>
@@ -92,7 +92,7 @@
     </div>
   </div>
 
-  <div class="bottom-container">
+  <div *ngIf="isVisible" class="bottom-container">
     <div *ngIf="previousPokemon" class="previous-pokemon shadow pokemon-container" (click)="navigateToId(previousPokemon.id)">
       <h1 class="lil-jap-name">{{previousPokemon.japName}}</h1>
       <div class="pokemon-info-container">
