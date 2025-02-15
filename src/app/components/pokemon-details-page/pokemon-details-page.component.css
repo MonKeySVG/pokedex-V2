@@ -45,7 +45,21 @@
   /*animation-timing-function: ease-in-out;*/
   /*animation-fill-mode: both;*/
   animation-delay: 0.75s;
-  animation: grow 0.7s cubic-bezier(0.3, 0.65, 0.2, 1.6) forwards, modifiedJelly 1s ease-out forwards 0.71s;
+  animation: grow 1s cubic-bezier(0.3, 0.65, 0.2, 1.6) forwards, modifiedJelly 1s ease-out forwards 0.71s;
+}
+
+#previous-pokemon div, #next-pokemon div {
+  animation-duration: 0.5s;
+  animation-name: blurInLeft;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  /*animation-delay: 0.75s;*/
+}
+
+#previous-pokemon h1, #next-pokemon h1 {
+  opacity: 0;
+  animation: lilJapNameBlurInLeft 0.5s ease-in-out forwards;
+  animation-delay: 0.3s;
 }
 
 @keyframes grow {
@@ -169,7 +183,7 @@
 }
 
 #id {
-  animation: blurInLeft 0.5s ease-in-out forwards;
+  animation: idBlurInLeft 0.5s ease-in-out forwards;
 }
 
 #name {
@@ -422,6 +436,45 @@
   }
   to {
     opacity: inherit;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes blurInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: inherit;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes lilJapNameBlurInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 0.03;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes idBlurInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 0.6;
     transform: translateY(0);
     filter: blur(0);
   }
