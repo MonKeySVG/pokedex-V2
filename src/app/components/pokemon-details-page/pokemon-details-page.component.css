@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   margin-top: 5rem;
+
 }
 
 .left-part {
@@ -19,6 +20,9 @@
 
 .left-part .img-container {
   animation-delay: 0.2s;
+  position: relative;
+
+  z-index: 1000;
 }
 
 .left-part .img-container img {
@@ -80,10 +84,11 @@
 
 .bottom-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 5rem;
   margin-top: 2rem;
-  padding-inline: 12rem;
+  position: relative;
+  z-index: 1;
 }
 
 .bottom-container p, .bottom-container h6 {
@@ -187,6 +192,7 @@
 }
 
 #name {
+
   animation: blurInLeft 0.5s ease-in-out forwards;
   animation-delay: 0.2s;
   opacity: 0;

@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Mincho';
+  src: url('assets/fonts/MSMINCHO.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Clash';
+  src: url('assets/fonts/ClashGrotesk.ttf') format('truetype');
+}
+
+.clash {
+  font-family: Clash, sans-serif;
+}
+
 body {
   background-color: hsl(240, 10%, 6%);
   font-family: "Poppins", serif;
