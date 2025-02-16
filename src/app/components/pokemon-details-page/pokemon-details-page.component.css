@@ -155,6 +155,7 @@
 
 .bottom-container .types {
   display: flex;
+  text-align: center;
 }
 
 .bottom-container .img-container img {
@@ -166,11 +167,12 @@
 
 .jap-name {
   position: absolute;
+  margin: 0;
   font-size: 12vw;
   font-weight: 900;
   z-index: -1;
   opacity: 0.8;
-  top: -200px;
+  top: -50px;
   right: 50px;
   white-space: nowrap;
 }
@@ -345,15 +347,19 @@
 .additional-info-container {
   display: flex;
   gap: 1rem;
+  margin-block: 1rem;
 }
 
 .additional-info-container div {
   flex: 1;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   padding: 1rem;
   border-radius: 12px;
-  margin-block: 1rem;
 }
 
 .additional-info-container div p {
@@ -504,3 +510,125 @@
 .types .type-dark span { background-color: #3A2E1A; color: #705746; }
 .types .type-steel span { background-color: #6D6D8A; color: #B7B7CE; }
 .types .type-fairy span { background-color: #A14E6D; color: #D685AD; }
+
+#sensitivities-small-screens {
+  display: none;
+  position: relative;
+  right: auto;
+  bottom: auto;
+}
+
+@media (max-width: 1280px) {
+  .left-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .jap-name {
+    top: auto;
+    right: auto;
+  }
+
+  .page-container #big-img-container {
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .page-container #big-img-container img {
+    width: 100%;
+  }
+
+  #sensitivities {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    right: auto;
+    bottom: auto;
+    margin-top: 1rem;
+  }
+
+  .additional-info-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1050px) {
+  .jap-name {
+    font-size: 20vw;
+  }
+
+  .left-right-container {
+    flex-direction: column;
+  }
+
+  .left-part {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .left-part .img-container img {
+    width: 100%;
+
+  }
+
+  #big-img-container {
+    animation: jelly 1s ease-out forwards 0s;
+
+  }
+
+  .additional-info-container {
+    flex-direction: row;
+
+  }
+
+  #sensitivities {
+    display: none;
+  }
+
+  #sensitivities-small-screens {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1rem;
+  }
+
+  .bottom-container {
+    gap: 2rem;
+
+  }
+
+  .bottom-container .types {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .bottom-container .pokemon-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 3rem;
+  }
+
+  #sensitivities-small-screens {
+    flex-direction: column;
+
+  }
+
+  #sensitivities-small-screens .weaknesses-container, #sensitivities-small-screens .resistances-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .additional-info-container {
+    flex-direction: column;
+  }
+}

@@ -89,6 +89,31 @@
         </div>
       </div>
 
+      <div id="sensitivities-small-screens" *ngIf="pokemon.sensitivities" class="sensitivities-container shadow jelly">
+        <div class="resistances" *ngIf="hasResistances()">
+          <h5>Resistances</h5>
+          <div class="resistances-container types sensitivities">
+            <ng-container *ngFor="let type of getSensitivityKeys()" class="">
+              <p *ngIf="pokemon.sensitivities[type] < 1" [ngClass]="'type-'+type" class="shadow">
+                {{ type }} <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
+              </p>
+            </ng-container>
+          </div>
+
+        </div>
+        <div class="weaknesses" *ngIf="hasWeaknesses()">
+          <h5>Weaknesses</h5>
+          <div class="weaknesses-container types sensitivities">
+            <ng-container *ngFor="let type of getSensitivityKeys()" class="">
+              <p *ngIf="pokemon.sensitivities[type] > 1" [ngClass]="'type-'+type" class="shadow">
+                {{ type }} <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
+              </p>
+            </ng-container>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 
