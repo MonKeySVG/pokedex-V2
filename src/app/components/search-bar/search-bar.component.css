@@ -129,3 +129,7 @@ h6, p {
 .pokemon-name {
   text-transform: capitalize;
 }
+
+.no-search-term, .no-results-container {
+  text-align: center;
+}
