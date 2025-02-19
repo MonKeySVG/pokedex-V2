@@ -55,14 +55,27 @@ export class PokedexComponent {
     }
   }
 
-  filterPokemons(selectedTypes: string[], selectedGenerations: number[]) {
-    if (selectedTypes.length === 0 && selectedGenerations.length === 0) {
+  getPokemonStatus(pokemon: Pokemon): string {
+    if (pokemon.isBaby) {
+      return 'baby';
+    } else if (pokemon.isMythical) {
+      return 'mythical';
+    } else if (pokemon.isLegendary) {
+      return 'legendary';
+    } else {
+      return 'normal';
+    }
+  }
+
+  filterPokemons(selectedTypes: string[], selectedGenerations: number[], selectedStatus: string[]) {
+    if (selectedTypes.length === 0 && selectedGenerations.length === 0 && selectedStatus.length === 0) {
       this.filteredPokemons = this.pokemons;
     } else {
       this.filteredPokemons = this.pokemons.filter(pokemon => {
         const matchesType = selectedTypes.length === 0 || selectedTypes.some(type => pokemon.types.includes(type));
         const matchesGeneration = selectedGenerations.length === 0 || selectedGenerations.includes(pokemon.generation);
-        return matchesType && matchesGeneration;
+        const matchesStatus = selectedStatus.length === 0 || selectedStatus.includes(this.getPokemonStatus(pokemon));
+        return matchesType && matchesGeneration && matchesStatus;
       });
     }
   }

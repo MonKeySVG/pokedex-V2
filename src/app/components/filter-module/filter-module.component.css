@@ -1,7 +1,13 @@
+.filter-module {
+  display: flex;
+  gap: 2rem;
+}
+
 .container {
   position: relative;
   background-color: red;
-  width: 5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
 }
 
 .select-btn {
@@ -25,10 +31,10 @@
   position: absolute;
   background-color: blue;
   display: none;
-  width: 5rem;
-
   margin: 0;
   padding: 0;
+  width: 100%;
+  left: 0;
 }
 
 .list-items .item {

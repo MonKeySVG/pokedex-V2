@@ -16,13 +16,16 @@ export class FilterModuleComponent {
     'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost',
     'dragon', 'dark', 'steel', 'fairy'
   ];
-
   generations: number[] = [1, 2, 3, 4, 5, 6, 7];
+  status: string[] = ['normal', 'baby', 'mythical', 'legendary'];
 
   selectedTypes: string[] = [];
   selectedGenerations: number[] = [];
+  selectedStatus: string[] = [];
+
   @Output() selectedTypesChange = new EventEmitter<string[]>();
   @Output() selectedGenerationsChange = new EventEmitter<number[]>();
+  @Output() selectedStatusChange = new EventEmitter<string[]>();
 
 
   toggleOpen(event: Event): void {
@@ -50,7 +53,17 @@ export class FilterModuleComponent {
       this.selectedGenerations.push(generation);
     }
     this.selectedGenerationsChange.emit(this.selectedGenerations);
-    console.log(this.selectedGenerations);
+  }
+
+  toggleSelectedStatus(event: Event, status: string): void {
+    const element = event.currentTarget as HTMLElement;
+    element.classList.toggle('selected');
+    if (this.selectedStatus.includes(status)) {
+      this.selectedStatus = this.selectedStatus.filter((s) => s !== status);
+    } else {
+      this.selectedStatus.push(status);
+    }
+    this.selectedStatusChange.emit(this.selectedStatus);
   }
 
 
