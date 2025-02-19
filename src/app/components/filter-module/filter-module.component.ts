@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostListener, Output} from '@angular/core';
 import {NgClass, NgForOf} from '@angular/common';
 
 @Component({
@@ -33,6 +33,8 @@ export class FilterModuleComponent {
 
   toggleOpen(event: Event): void {
     const element = event.currentTarget as HTMLElement;
+    const openElements = this.elementRef.nativeElement.querySelectorAll('.open');
+    openElements.forEach((el: HTMLElement) => el.classList.remove('open'));
     element.classList.toggle('open');
   }
 
@@ -95,6 +97,13 @@ export class FilterModuleComponent {
     this.searchTextChange.emit(this.searchText);
   }
 
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event): void {
+    if (!(event.target as HTMLElement).closest('.dropdown')) {
+      const openElements = this.elementRef.nativeElement.querySelectorAll('.open');
+      openElements.forEach((element: HTMLElement) => element.classList.remove('open'));
+    }
+  }
 
 
 }
