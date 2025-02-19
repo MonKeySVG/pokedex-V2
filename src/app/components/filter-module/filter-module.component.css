@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+  background-color: red;
+  width: 5rem;
+}
+
+.select-btn {
+  display: flex;
+  align-items: center;
+
+}
+
+.arrow-dwn {
+  display: flex;
+  align-items: center;
+}
+
+.select-btn.open ~ .list-items {
+  display: block;
+}
+
+
+.list-items {
+  z-index: 1000;
+  position: absolute;
+  background-color: blue;
+  display: none;
+  width: 5rem;
+
+  margin: 0;
+  padding: 0;
+}
+
+.list-items .item {
+  list-style: none;
+
+}
+
+.list-items .item.selected {
+  background-color: green;
+}

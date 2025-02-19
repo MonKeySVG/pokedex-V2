@@ -19,6 +19,7 @@ import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.dir
 })
 export class PokedexComponent {
   pokemons: Pokemon[] = [];
+  filteredPokemons: Pokemon[] = [];
   isLoading = true;
   private imagesLoaded = 0;
 
@@ -30,6 +31,7 @@ export class PokedexComponent {
   ngOnInit() {
     this.pokedexService.pokemons$.subscribe((data) => {
       this.pokemons = data;
+      this.filteredPokemons = data;
       // console.log(this.pokemons);
     });
     this.pokedexService.getAllPokemons();
