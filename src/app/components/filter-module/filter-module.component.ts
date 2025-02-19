@@ -34,8 +34,9 @@ export class FilterModuleComponent {
   toggleOpen(event: Event): void {
     const element = event.currentTarget as HTMLElement;
     const openElements = this.elementRef.nativeElement.querySelectorAll('.open');
-    openElements.forEach((el: HTMLElement) => el.classList.remove('open'));
     element.classList.toggle('open');
+    openElements.forEach((el: HTMLElement) => el.classList.remove('open'));
+
   }
 
   toggleSelectedType(event: Event, type: string): void {

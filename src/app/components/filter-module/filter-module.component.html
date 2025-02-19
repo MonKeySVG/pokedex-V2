@@ -1,5 +1,5 @@
-<div class="filter-module">
-  <div class="container dropdown">
+<div class="filter-module shadow">
+  <div class="container dropdown shadow">
     <div class="select-btn type-button"(click)="toggleOpen($event)">
       <span class="btn-text">Type</span>
       <span class="arrow-dwn">
@@ -9,7 +9,7 @@
     </span>
     </div>
 
-    <ul class="list-items">
+    <ul class="list-items shadow types">
 
       <li *ngFor="let type of types" [ngClass]="'type-' + type" class="item" (click)="toggleSelectedType($event, type)">
         <span class="item-text">
@@ -19,7 +19,7 @@
     </ul>
   </div>
 
-  <div class="container dropdown">
+  <div class="container dropdown shadow">
     <div class="select-btn type-button"(click)="toggleOpen($event)">
       <span class="btn-text">Generation</span>
       <span class="arrow-dwn">
@@ -29,7 +29,7 @@
     </span>
     </div>
 
-    <ul class="list-items">
+    <ul class="list-items shadow">
 
       <li *ngFor="let gen of generations" class="item" (click)="toggleSelectedGeneration($event, gen)">
         <span class="item-text">
@@ -39,7 +39,7 @@
     </ul>
   </div>
 
-  <div class="container dropdown">
+  <div class="container dropdown shadow">
     <div class="select-btn type-button"(click)="toggleOpen($event)">
       <span class="btn-text">Status</span>
       <span class="arrow-dwn">
@@ -49,7 +49,7 @@
     </span>
     </div>
 
-    <ul class="list-items">
+    <ul class="list-items shadow">
 
       <li *ngFor="let status of status" class="item" (click)="toggleSelectedStatus($event, status)">
         <span class="item-text">

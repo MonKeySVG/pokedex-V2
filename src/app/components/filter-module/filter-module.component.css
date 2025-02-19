@@ -1,20 +1,48 @@
 .filter-module {
   display: flex;
   gap: 2rem;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
 }
 
 .container {
   position: relative;
-  background-color: red;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0;
+  border-radius: 8px;
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.search-bar-container {
+  flex-grow: 1;
+  padding: 0 2rem 0 0;
+}
+
+.search-bar {
+  width: 100%;
+  border-radius: 8px;
+  font-family: Poppins, Serif;
+  font-size: 1.2rem;
+  padding: 0.3em 0.8em;
+  font-weight: 600;
+  border: none;
+
+}
+
+.clear-btn {
+  font-size: 1.2rem;
+
 }
 
 .select-btn {
   display: flex;
   align-items: center;
-
+  padding: 0 1rem;
 }
 
 .arrow-dwn {
@@ -30,19 +58,31 @@
 .list-items {
   z-index: 1000;
   position: absolute;
-  background-color: blue;
   display: none;
   margin: 0;
   padding: 0;
   width: 100%;
   left: 0;
+  top: 110%;
+  border-top: none;
+  border-radius: 8px;
+  text-align: center;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .list-items .item {
   list-style: none;
-
+  padding: 0.5rem 1rem;
+  filter: grayscale(1);
 }
 
 .list-items .item.selected {
-  background-color: green;
+  filter: grayscale(0);
+
+}
+
+.list-items .item span {
+  font-size: 1rem;
+  font-weight: 400;
 }
