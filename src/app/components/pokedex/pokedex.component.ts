@@ -55,13 +55,15 @@ export class PokedexComponent {
     }
   }
 
-  filterPokemons(selectedTypes: string[]) {
-    if (selectedTypes.length === 0) {
+  filterPokemons(selectedTypes: string[], selectedGenerations: number[]) {
+    if (selectedTypes.length === 0 && selectedGenerations.length === 0) {
       this.filteredPokemons = this.pokemons;
     } else {
-      this.filteredPokemons = this.pokemons.filter(pokemon =>
-        selectedTypes.some(type => pokemon.types.includes(type))
-      );
+      this.filteredPokemons = this.pokemons.filter(pokemon => {
+        const matchesType = selectedTypes.length === 0 || selectedTypes.some(type => pokemon.types.includes(type));
+        const matchesGeneration = selectedGenerations.length === 0 || selectedGenerations.includes(pokemon.generation);
+        return matchesType && matchesGeneration;
+      });
     }
   }
 }

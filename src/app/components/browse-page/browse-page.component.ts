@@ -12,7 +12,7 @@ export class BrowsePageComponent {
   @ViewChild(PokedexComponent) pokedexComponent!: PokedexComponent;
   @ViewChild(FilterModuleComponent) filterModuleComponent!: FilterModuleComponent;
 
-  onSelectedTypesChange(selectedTypes: string[]) {
-    this.pokedexComponent.filterPokemons(this.filterModuleComponent.selectedTypes);
+  onSelectedFilterChange(): void {
+    this.pokedexComponent.filterPokemons(this.filterModuleComponent.selectedTypes, this.filterModuleComponent.selectedGenerations);
   }
 }
