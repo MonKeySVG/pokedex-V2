@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 5em;
+  padding: 1rem 5rem;
   position: fixed;
-  width: calc(100% - 10em);
+  width: calc(100% - 10rem);
   top: 0;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.6);
@@ -70,4 +70,24 @@ p {
 
 .search-placeholder {
   padding-left: 0.6em;
+}
+
+.search-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .search-icon {
+    display: flex;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .header-container {
+    padding: 1rem 2rem;
+    width: calc(100% - 4rem);
+  }
 }

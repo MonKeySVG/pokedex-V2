@@ -435,3 +435,17 @@ meter::-webkit-meter-optimum-value {
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;
 }
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 3rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .bottom-container {
+    flex-direction: column;
+  }
+}
