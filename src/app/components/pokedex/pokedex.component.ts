@@ -54,4 +54,14 @@ export class PokedexComponent {
       this.isLoading = false;
     }
   }
+
+  filterPokemons(selectedTypes: string[]) {
+    if (selectedTypes.length === 0) {
+      this.filteredPokemons = this.pokemons;
+    } else {
+      this.filteredPokemons = this.pokemons.filter(pokemon =>
+        selectedTypes.some(type => pokemon.types.includes(type))
+      );
+    }
+  }
 }

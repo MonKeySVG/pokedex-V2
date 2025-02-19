@@ -3,7 +3,7 @@
 </div>
 
 <ul [ngClass]="isLoading ? 'pokemons-loading' : 'pokemons'">
-  <li *ngFor="let pokemon of pokemons" appAnimateOnScroll>
+  <li *ngFor="let pokemon of filteredPokemons" appAnimateOnScroll>
     <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
   </li>
 </ul>

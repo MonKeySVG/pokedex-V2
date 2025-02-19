@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { PokedexComponent } from '../pokedex/pokedex.component';
 import {FilterModuleComponent} from '../filter-module/filter-module.component';
 
@@ -8,4 +8,11 @@ import {FilterModuleComponent} from '../filter-module/filter-module.component';
   templateUrl: './browse-page.component.html',
   styleUrl: './browse-page.component.css',
 })
-export class BrowsePageComponent {}
+export class BrowsePageComponent {
+  @ViewChild(PokedexComponent) pokedexComponent!: PokedexComponent;
+  @ViewChild(FilterModuleComponent) filterModuleComponent!: FilterModuleComponent;
+
+  onSelectedTypesChange(selectedTypes: string[]) {
+    this.pokedexComponent.filterPokemons(this.filterModuleComponent.selectedTypes);
+  }
+}
