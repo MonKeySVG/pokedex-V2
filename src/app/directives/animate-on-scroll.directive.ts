@@ -1,15 +1,17 @@
-import {AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appAnimateOnScroll]'
+  selector: '[appAnimateOnScroll]',
 })
-export class AnimateOnScrollDirective implements AfterViewInit{
-
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+export class AnimateOnScrollDirective implements AfterViewInit {
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+  ) {}
 
   ngAfterViewInit() {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           this.renderer.addClass(this.el.nativeElement, 'animate');
         } else {
@@ -20,5 +22,4 @@ export class AnimateOnScrollDirective implements AfterViewInit{
 
     observer.observe(this.el.nativeElement);
   }
-
 }

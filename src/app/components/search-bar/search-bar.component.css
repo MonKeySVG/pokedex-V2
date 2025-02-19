@@ -32,7 +32,6 @@
   border: none;
   outline: none;
   color: lightgrey;
-
 }
 
 .search-icon {
@@ -66,7 +65,8 @@
   backdrop-filter: blur(10px);
 }
 
-.no-results-container, .no-search-term {
+.no-results-container,
+.no-search-term {
   border-radius: 0 0 12px 12px;
   display: flex;
   flex-direction: column;
@@ -74,7 +74,8 @@
   padding: 2rem 4rem;
 }
 
-h6, p {
+h6,
+p {
   margin: 0;
 }
 
@@ -109,7 +110,8 @@ h6, p {
   text-transform: capitalize;
 }
 
-.search-results .selected, .search-results .result-container:hover {
+.search-results .selected,
+.search-results .result-container:hover {
   background-color: hsl(240, 7%, 11%);
   color: white;
 }
@@ -130,6 +132,7 @@ h6, p {
   text-transform: capitalize;
 }
 
-.no-search-term, .no-results-container {
+.no-search-term,
+.no-results-container {
   text-align: center;
 }

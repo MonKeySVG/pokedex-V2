@@ -1,20 +1,22 @@
-import {Component, ElementRef, EventEmitter, HostListener, Output, ViewChild} from '@angular/core';
-import {Pokemon} from '../../models/pokemon.model';
-import {PokedexService} from '../../services/pokedex.service';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { Pokemon } from '../../models/pokemon.model';
+import { PokedexService } from '../../services/pokedex.service';
+import { NgClass, NgForOf, NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
-  imports: [
-    NgIf,
-    NgForOf,
-    FormsModule,
-    NgClass
-  ],
+  imports: [NgIf, NgForOf, FormsModule, NgClass],
   templateUrl: './search-bar.component.html',
-  styleUrl: './search-bar.component.css'
+  styleUrl: './search-bar.component.css',
 })
 export class SearchBarComponent {
   @Output() close = new EventEmitter<void>();
@@ -24,10 +26,10 @@ export class SearchBarComponent {
   selectedIndex: number = -1;
   private needsScroll: boolean = false;
 
-
-
-  constructor(private pokedexService: PokedexService, private router: Router) {}
-
+  constructor(
+    private pokedexService: PokedexService,
+    private router: Router,
+  ) {}
 
   closeSearchBar() {
     this.close.emit();
@@ -36,9 +38,9 @@ export class SearchBarComponent {
   onSearchChange() {
     console.log(this.searchTerm);
     if (this.searchTerm.length > 0) {
-      this.pokedexService.pokemons$.subscribe(pokemons => {
-        this.filteredPokemons = pokemons.filter(pokemon =>
-          pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      this.pokedexService.pokemons$.subscribe((pokemons) => {
+        this.filteredPokemons = pokemons.filter((pokemon) =>
+          pokemon.name.toLowerCase().includes(this.searchTerm.toLowerCase()),
         );
 
         this.filteredPokemons.sort((a, b) => {
@@ -63,17 +65,17 @@ export class SearchBarComponent {
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if (event.key === 'ArrowDown') {
-      this.selectedIndex = (this.selectedIndex + 1) % this.filteredPokemons.length;
+      this.selectedIndex =
+        (this.selectedIndex + 1) % this.filteredPokemons.length;
       this.needsScroll = true;
-
     } else if (event.key === 'ArrowUp') {
-      this.selectedIndex = (this.selectedIndex - 1 + this.filteredPokemons.length) % this.filteredPokemons.length;
+      this.selectedIndex =
+        (this.selectedIndex - 1 + this.filteredPokemons.length) %
+        this.filteredPokemons.length;
       this.needsScroll = true;
-
     } else if (event.key === 'Enter' && this.selectedIndex >= 0) {
       this.selectPokemon(this.filteredPokemons[this.selectedIndex]);
-    }
-    else if (event.key === 'Escape') {
+    } else if (event.key === 'Escape') {
       this.closeSearchBar();
     }
   }
@@ -96,9 +98,12 @@ export class SearchBarComponent {
   selectPokemon(pokemon: Pokemon) {
     this.closeSearchBar();
     const url = this.router.createUrlTree(['/pokemon', pokemon.id]).toString();
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigateByUrl(url);
-    }).catch(console.error);
+    this.router
+      .navigateByUrl('/', { skipLocationChange: true })
+      .then(() => {
+        this.router.navigateByUrl(url);
+      })
+      .catch(console.error);
   }
 
   ngAfterViewInit() {

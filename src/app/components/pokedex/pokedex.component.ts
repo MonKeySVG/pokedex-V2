@@ -1,9 +1,9 @@
-import {Component, Renderer2} from '@angular/core';
-import {PokedexService} from '../../services/pokedex.service';
-import {Pokemon} from '../../models/pokemon.model';
-import {PokemonCardComponent} from '../pokemon-card/pokemon-card.component';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
-import {AnimateOnScrollDirective} from '../../directives/animate-on-scroll.directive';
+import { Component, Renderer2 } from '@angular/core';
+import { PokedexService } from '../../services/pokedex.service';
+import { Pokemon } from '../../models/pokemon.model';
+import { PokemonCardComponent } from '../pokemon-card/pokemon-card.component';
+import { NgClass, NgForOf, NgIf } from '@angular/common';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-pokedex',
@@ -12,20 +12,23 @@ import {AnimateOnScrollDirective} from '../../directives/animate-on-scroll.direc
     NgForOf,
     AnimateOnScrollDirective,
     NgIf,
-    NgClass
+    NgClass,
   ],
   templateUrl: './pokedex.component.html',
-  styleUrl: './pokedex.component.css'
+  styleUrl: './pokedex.component.css',
 })
 export class PokedexComponent {
   pokemons: Pokemon[] = [];
   isLoading = true;
   private imagesLoaded = 0;
 
-  constructor(private pokedexService: PokedexService, private renderer: Renderer2) {}
+  constructor(
+    private pokedexService: PokedexService,
+    private renderer: Renderer2,
+  ) {}
 
   ngOnInit() {
-    this.pokedexService.pokemons$.subscribe(data => {
+    this.pokedexService.pokemons$.subscribe((data) => {
       this.pokemons = data;
       // console.log(this.pokemons);
     });
@@ -38,7 +41,7 @@ export class PokedexComponent {
 
   checkImagesLoaded() {
     const images = document.querySelectorAll('img');
-    images.forEach(img => {
+    images.forEach((img) => {
       this.renderer.listen(img, 'load', () => this.onImageLoad());
     });
   }
@@ -49,5 +52,4 @@ export class PokedexComponent {
       this.isLoading = false;
     }
   }
-
 }

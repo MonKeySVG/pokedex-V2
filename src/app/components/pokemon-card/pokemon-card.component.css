@@ -9,7 +9,7 @@
 .pokemon {
   height: 220px;
   border-radius: 12px;
-  padding-block: 1em;;
+  padding-block: 1em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -26,7 +26,7 @@
 }
 
 .id p {
-  opacity: .6;
+  opacity: 0.6;
   font-size: 0.8em;
   font-weight: 600;
 }
@@ -41,7 +41,6 @@
 .pokemon img {
   max-height: 160px;
   filter: saturate(1.5);
-
 }
 
 .types {
@@ -63,7 +62,7 @@
 }
 
 .pokemon-card-front p {
-  animation: blurInDown 0.2s ease-out forwards
+  animation: blurInDown 0.2s ease-out forwards;
 }
 
 .pokemon-card-front img {
@@ -86,14 +85,12 @@
   animation: fadeIn 0.2s ease-out forwards;
   animation-delay: 0.3s;
   transform: scale(1) translate(-50%, 20%);
-
 }
 
 .pokemon-card-back .stats {
   position: relative;
   z-index: 10;
   padding: 0.5rem 1rem;
-
 }
 
 .stat-container {
@@ -150,7 +147,6 @@
   position: relative;
   z-index: 1;
   margin-top: 0.5rem;
-
 }
 
 @keyframes blurInUp {
@@ -188,9 +184,4 @@
     opacity: 0.1;
     filter: blur(0);
   }
-
 }
-
-
-
-

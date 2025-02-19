@@ -1,174 +1,266 @@
 <div class="page-container">
   <div class="left-right-container">
     <div *ngIf="isVisible" class="left-part">
-      <h1 id="jap-name" class="jap-name" [style.color]="pokemon.color" [style.filter]="'saturate(1.5) drop-shadow(10px 10px 0px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'lightgrey' : pokemon.color) + ', transparent 70%))'">{{pokemon.japName}}</h1>
+      <h1
+        id="jap-name"
+        class="jap-name"
+        [style.color]="pokemon.color"
+        [style.filter]="
+          'saturate(1.5) drop-shadow(10px 10px 0px ' +
+          'color-mix(in srgb, ' +
+          (pokemon.color === 'black' ? 'lightgrey' : pokemon.color) +
+          ', transparent 70%))'
+        "
+      >
+        {{ pokemon.japName }}
+      </h1>
 
       <div id="big-img-container" class="img-container">
-        <img src="{{ pokemon.spriteArtworkUrl }}" alt="{{ pokemon.name }}" [style.filter]="'saturate(1.5) drop-shadow(0px 0px 5px ' + 'color-mix(in srgb, ' + (pokemon.color === 'black' ? 'white' : pokemon.color) + ', transparent 0%))'">
+        <img
+          src="{{ pokemon.spriteArtworkUrl }}"
+          alt="{{ pokemon.name }}"
+          [style.filter]="
+            'saturate(1.5) drop-shadow(0px 0px 5px ' +
+            'color-mix(in srgb, ' +
+            (pokemon.color === 'black' ? 'white' : pokemon.color) +
+            ', transparent 0%))'
+          "
+        />
       </div>
 
-      <div id="sensitivities" *ngIf="pokemon.sensitivities" class="sensitivities-container shadow jelly">
+      <div
+        id="sensitivities"
+        *ngIf="pokemon.sensitivities"
+        class="sensitivities-container shadow jelly"
+      >
         <div class="resistances" *ngIf="hasResistances()">
           <h5>Resistances</h5>
           <div class="resistances-container types sensitivities">
             <ng-container *ngFor="let type of getSensitivityKeys()" class="">
-              <p *ngIf="pokemon.sensitivities[type] < 1" [ngClass]="'type-'+type" class="shadow">
-                {{ type }} <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
+              <p
+                *ngIf="pokemon.sensitivities[type] < 1"
+                [ngClass]="'type-' + type"
+                class="shadow"
+              >
+                {{ type }}
+                <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
               </p>
             </ng-container>
           </div>
-
         </div>
         <div class="weaknesses" *ngIf="hasWeaknesses()">
           <h5>Weaknesses</h5>
           <div class="weaknesses-container types sensitivities">
             <ng-container *ngFor="let type of getSensitivityKeys()" class="">
-              <p *ngIf="pokemon.sensitivities[type] > 1" [ngClass]="'type-'+type" class="shadow">
-                {{ type }} <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
+              <p
+                *ngIf="pokemon.sensitivities[type] > 1"
+                [ngClass]="'type-' + type"
+                class="shadow"
+              >
+                {{ type }}
+                <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
               </p>
             </ng-container>
           </div>
-
         </div>
       </div>
     </div>
 
     <div *ngIf="isVisible" class="right-part">
-
       <div class="base-info-container">
         <p id="id" class="id">#{{ pokemon.id }}</p>
         <div id="name" class="name-container clash">
-          <h1>{{ pokemon.name }}
-            <span *ngIf="pokemon.isLegendary" class="status-container legendary">
-            Legendary
-          </span>
+          <h1>
+            {{ pokemon.name }}
+            <span
+              *ngIf="pokemon.isLegendary"
+              class="status-container legendary"
+            >
+              Legendary
+            </span>
 
             <span *ngIf="pokemon.isMythical" class="status-container mythical">
-            Mythical
-          </span>
+              Mythical
+            </span>
 
             <span *ngIf="pokemon.isBaby" class="status-container baby">
-            baby
-          </span>
+              baby
+            </span>
           </h1>
-
-
         </div>
       </div>
 
-
-
       <div class="types">
-        <p id="type-1" *ngIf="pokemon.types.length > 0" [ngClass]="'type-' + pokemon.types[0]" class="shadow">{{pokemon.types[0]}}</p>
-        <p id="type-2" *ngIf="pokemon.types.length > 1" [ngClass]="'type-' + pokemon.types[1]" class="shadow">{{pokemon.types[1]}}</p>
+        <p
+          id="type-1"
+          *ngIf="pokemon.types.length > 0"
+          [ngClass]="'type-' + pokemon.types[0]"
+          class="shadow"
+        >
+          {{ pokemon.types[0] }}
+        </p>
+        <p
+          id="type-2"
+          *ngIf="pokemon.types.length > 1"
+          [ngClass]="'type-' + pokemon.types[1]"
+          class="shadow"
+        >
+          {{ pokemon.types[1] }}
+        </p>
       </div>
 
       <div id="description" class="description-container shadow jelly">
-        <p>{{pokemon.description}}</p>
+        <p>{{ pokemon.description }}</p>
       </div>
 
       <div class="additional-info-container">
         <div id="ad-info" class="additional-info shadow jelly">
-          <p><strong>Origin generation:</strong> {{pokemon.generation}}</p>
-          <p *ngIf="pokemon.habitat"><strong>Habitat:</strong> <span class="capitalize"> {{pokemon.habitat}}</span></p>
+          <p><strong>Origin generation:</strong> {{ pokemon.generation }}</p>
+          <p *ngIf="pokemon.habitat">
+            <strong>Habitat:</strong>
+            <span class="capitalize"> {{ pokemon.habitat }}</span>
+          </p>
         </div>
 
         <div id="size-info" class="size-container shadow jelly">
-          <p><strong>Height:</strong> {{pokemon.height}}m</p>
-          <p><strong>Weight:</strong> {{pokemon.weight}}kg</p>
+          <p><strong>Height:</strong> {{ pokemon.height }}m</p>
+          <p><strong>Weight:</strong> {{ pokemon.weight }}kg</p>
         </div>
       </div>
-
-
 
       <div class="stats-container">
-        <div *ngFor="let stat of pokemon.stats; let i = index" class="stat-container">
-          <p class="stat-name">{{statNames[i]}}</p>
+        <div
+          *ngFor="let stat of pokemon.stats; let i = index"
+          class="stat-container"
+        >
+          <p class="stat-name">{{ statNames[i] }}</p>
           <meter [value]="stat" [max]="255"></meter>
-          <p class="stat-value">{{stat}}</p>
+          <p class="stat-value">{{ stat }}</p>
         </div>
       </div>
 
-      <div id="sensitivities-small-screens" *ngIf="pokemon.sensitivities" class="sensitivities-container shadow jelly">
+      <div
+        id="sensitivities-small-screens"
+        *ngIf="pokemon.sensitivities"
+        class="sensitivities-container shadow jelly"
+      >
         <div class="resistances" *ngIf="hasResistances()">
           <h5>Resistances</h5>
           <div class="resistances-container types sensitivities">
             <ng-container *ngFor="let type of getSensitivityKeys()" class="">
-              <p *ngIf="pokemon.sensitivities[type] < 1" [ngClass]="'type-'+type" class="shadow">
-                {{ type }} <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
+              <p
+                *ngIf="pokemon.sensitivities[type] < 1"
+                [ngClass]="'type-' + type"
+                class="shadow"
+              >
+                {{ type }}
+                <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
               </p>
             </ng-container>
           </div>
-
         </div>
         <div class="weaknesses" *ngIf="hasWeaknesses()">
           <h5>Weaknesses</h5>
           <div class="weaknesses-container types sensitivities">
             <ng-container *ngFor="let type of getSensitivityKeys()" class="">
-              <p *ngIf="pokemon.sensitivities[type] > 1" [ngClass]="'type-'+type" class="shadow">
-                {{ type }} <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
+              <p
+                *ngIf="pokemon.sensitivities[type] > 1"
+                [ngClass]="'type-' + type"
+                class="shadow"
+              >
+                {{ type }}
+                <span class="shadow">x{{ pokemon.sensitivities[type] }}</span>
               </p>
             </ng-container>
           </div>
-
         </div>
       </div>
-
     </div>
   </div>
 
   <div *ngIf="isVisible" class="bottom-container">
-    <div *ngIf="previousPokemon" id="previous-pokemon" class="previous-pokemon shadow pokemon-container" (click)="navigateToId(previousPokemon.id)">
-      <h1 class="lil-jap-name">{{previousPokemon.japName}}</h1>
+    <div
+      *ngIf="previousPokemon"
+      id="previous-pokemon"
+      class="previous-pokemon shadow pokemon-container"
+      (click)="navigateToId(previousPokemon.id)"
+    >
+      <h1 class="lil-jap-name">{{ previousPokemon.japName }}</h1>
       <div class="pokemon-info-container">
         <div class="left">
-
           <div class="img-container">
-            <img src="{{ previousPokemon.spriteArtworkUrl }}" alt="{{ previousPokemon.name }}">
+            <img
+              src="{{ previousPokemon.spriteArtworkUrl }}"
+              alt="{{ previousPokemon.name }}"
+            />
           </div>
         </div>
 
         <div class="right">
           <div class="pokemon-info">
-            <p>#{{previousPokemon.id}}</p>
+            <p>#{{ previousPokemon.id }}</p>
             <h6>{{ previousPokemon.name }}</h6>
             <div class="types">
-              <p *ngIf="previousPokemon.types.length > 0" [ngClass]="'type-' + previousPokemon.types[0]" class="shadow">{{previousPokemon.types[0]}}</p>
-              <p *ngIf="previousPokemon.types.length > 1" [ngClass]="'type-' + previousPokemon.types[1]" class="shadow">{{previousPokemon.types[1]}}</p>
+              <p
+                *ngIf="previousPokemon.types.length > 0"
+                [ngClass]="'type-' + previousPokemon.types[0]"
+                class="shadow"
+              >
+                {{ previousPokemon.types[0] }}
+              </p>
+              <p
+                *ngIf="previousPokemon.types.length > 1"
+                [ngClass]="'type-' + previousPokemon.types[1]"
+                class="shadow"
+              >
+                {{ previousPokemon.types[1] }}
+              </p>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
 
-
-    <div *ngIf="nextPokemon" id="next-pokemon" class="next-pokemon shadow pokemon-container" (click)="navigateToId(nextPokemon.id)">
-      <h1 class="lil-jap-name">{{nextPokemon.japName}}</h1>
+    <div
+      *ngIf="nextPokemon"
+      id="next-pokemon"
+      class="next-pokemon shadow pokemon-container"
+      (click)="navigateToId(nextPokemon.id)"
+    >
+      <h1 class="lil-jap-name">{{ nextPokemon.japName }}</h1>
       <div class="pokemon-info-container">
         <div class="left">
-
           <div class="img-container">
-            <img src="{{ nextPokemon.spriteArtworkUrl }}" alt="{{ nextPokemon.name }}">
+            <img
+              src="{{ nextPokemon.spriteArtworkUrl }}"
+              alt="{{ nextPokemon.name }}"
+            />
           </div>
         </div>
 
         <div class="right">
           <div class="pokemon-info">
-            <p>#{{nextPokemon.id}}</p>
+            <p>#{{ nextPokemon.id }}</p>
             <h6>{{ nextPokemon.name }}</h6>
             <div class="types">
-              <p *ngIf="nextPokemon.types.length > 0" [ngClass]="'type-' + nextPokemon.types[0]" class="shadow">{{nextPokemon.types[0]}}</p>
-              <p *ngIf="nextPokemon.types.length > 1" [ngClass]="'type-' + nextPokemon.types[1]" class="shadow">{{nextPokemon.types[1]}}</p>
+              <p
+                *ngIf="nextPokemon.types.length > 0"
+                [ngClass]="'type-' + nextPokemon.types[0]"
+                class="shadow"
+              >
+                {{ nextPokemon.types[0] }}
+              </p>
+              <p
+                *ngIf="nextPokemon.types.length > 1"
+                [ngClass]="'type-' + nextPokemon.types[1]"
+                class="shadow"
+              >
+                {{ nextPokemon.types[1] }}
+              </p>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
-
   </div>
-
 </div>

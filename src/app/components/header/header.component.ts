@@ -1,22 +1,18 @@
-import {Component, HostListener} from '@angular/core';
-import {SearchBarComponent} from '../search-bar/search-bar.component';
-import {NgIf} from '@angular/common';
-import {PokedexService} from '../../services/pokedex.service';
+import { Component, HostListener } from '@angular/core';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { NgIf } from '@angular/common';
+import { PokedexService } from '../../services/pokedex.service';
 
 @Component({
   selector: 'app-header',
-  imports: [
-    SearchBarComponent,
-    NgIf
-  ],
+  imports: [SearchBarComponent, NgIf],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   isSearchBarOpen = false;
 
-  constructor(private pokedexService: PokedexService) {
-  }
+  constructor(private pokedexService: PokedexService) {}
 
   ngOnInit() {
     this.pokedexService.getAllPokemons();
@@ -36,7 +32,8 @@ export class HeaderComponent {
 
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    if (event.key === 'k' && event.metaKey) { // Command+K
+    if (event.key === 'k' && event.metaKey) {
+      // Command+K
       event.preventDefault();
       this.toggleSearchBar();
     }

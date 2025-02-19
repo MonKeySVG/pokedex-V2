@@ -6,7 +6,6 @@
   display: flex;
   align-items: center;
   margin-top: 5rem;
-
 }
 
 .left-part {
@@ -32,7 +31,6 @@
   /*image-rendering: pixelated;*/
   /*image-rendering: -moz-crisp-edges; !* Firefox *!*/
   /*image-rendering: crisp-edges; !* Safari, Chrome, Edge *!*/
-
 }
 
 #jap-name {
@@ -49,10 +47,13 @@
   /*animation-timing-function: ease-in-out;*/
   /*animation-fill-mode: both;*/
   animation-delay: 0.75s;
-  animation: grow 1s cubic-bezier(0.3, 0.65, 0.2, 1.6) forwards, modifiedJelly 1s ease-out forwards 0.71s;
+  animation:
+    grow 1s cubic-bezier(0.3, 0.65, 0.2, 1.6) forwards,
+    modifiedJelly 1s ease-out forwards 0.71s;
 }
 
-#previous-pokemon div, #next-pokemon div {
+#previous-pokemon div,
+#next-pokemon div {
   animation-duration: 0.5s;
   animation-name: blurInLeft;
   animation-timing-function: ease-in-out;
@@ -60,7 +61,8 @@
   /*animation-delay: 0.75s;*/
 }
 
-#previous-pokemon h1, #next-pokemon h1 {
+#previous-pokemon h1,
+#next-pokemon h1 {
   opacity: 0;
   animation: lilJapNameBlurInLeft 0.5s ease-in-out forwards;
   animation-delay: 0.3s;
@@ -71,14 +73,13 @@
     transform: translateX(30rem) scale(0);
   }
 
-
-
   55% {
     transform: translateX(30rem) scale(1.5);
   }
 
   100% {
-    transform: translateX(0rem) scale(0.9) matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transform: translateX(0rem) scale(0.9)
+      matrix3d(0.7, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   }
 }
 
@@ -91,7 +92,8 @@
   z-index: 1;
 }
 
-.bottom-container p, .bottom-container h6 {
+.bottom-container p,
+.bottom-container h6 {
   margin: 0;
 }
 
@@ -194,7 +196,6 @@
 }
 
 #name {
-
   animation: blurInLeft 0.5s ease-in-out forwards;
   animation-delay: 0.2s;
   opacity: 0;
@@ -220,12 +221,10 @@
 
 #description {
   animation-delay: 0.5s;
-
 }
 
 #ad-info {
   animation-delay: 0.6s;
-
 }
 
 #size-info {
@@ -249,7 +248,8 @@
   text-transform: capitalize;
 }
 
-.sensitivities-container .weaknesses-container, .sensitivities-container .resistances-container {
+.sensitivities-container .weaknesses-container,
+.sensitivities-container .resistances-container {
   display: grid;
   grid-template-columns: auto auto;
   gap: 0.833rem;
@@ -323,7 +323,6 @@
 
 .stat-container p:first-child {
   text-align: end;
-
 }
 
 .stat-container meter {
@@ -414,30 +413,22 @@
     10px 0 20px var(--color3);
 }
 
-
-
 .name-container .mythical {
   --color1: #ff0000; /* Red */
   --color2: violet;
   --color3: #ff00ff; /* Magenta */
-
 }
-
-
 
 .name-container .legendary {
   --color1: #fff; /* White */
   --color2: violet;
   --color3: #0ff; /* Cyan */
-
 }
-
 
 .name-container .baby {
   --color1: #ffb6c1; /* Light Pink */
   --color2: #ff69b4; /* Hot Pink */
   --color3: #ff1493; /* Deep Pink */
-
 }
 
 @keyframes blurInLeft {
@@ -492,24 +483,78 @@
   }
 }
 
-.types .type-normal span { background-color: #6D6D4E; color: #A8A77A; }
-.types .type-fire span { background-color: #B22200; color: #EE8130; }
-.types .type-water span { background-color: #0A47A1; color: #6390F0; }
-.types .type-electric span { background-color: #B89A00; color: #F7D02C; }
-.types .type-grass span { background-color: #3A7D1A; color: #7AC74C; }
-.types .type-ice span { background-color: #4A7D7A; color: #96D9D6; }
-.types .type-fighting span { background-color: #7A1A1A; color: #C22E28; }
-.types .type-poison span { background-color: #6D1A6D; color: #A33EA1; }
-.types .type-ground span { background-color: #A17D1A; color: #E2BF65; }
-.types .type-flying span { background-color: #6D4EA1; color: #A98FF3; }
-.types .type-psychic span { background-color: #A10A47; color: #F95587; }
-.types .type-bug span { background-color: #6D7D1A; color: #A6B91A; }
-.types .type-rock span { background-color: #7A6D1A; color: #B6A136; }
-.types .type-ghost span { background-color: #4A2E6D; color: #735797; }
-.types .type-dragon span { background-color: #3A1AA1; color: #6F35FC; }
-.types .type-dark span { background-color: #3A2E1A; color: #705746; }
-.types .type-steel span { background-color: #6D6D8A; color: #B7B7CE; }
-.types .type-fairy span { background-color: #A14E6D; color: #D685AD; }
+.types .type-normal span {
+  background-color: #6d6d4e;
+  color: #a8a77a;
+}
+.types .type-fire span {
+  background-color: #b22200;
+  color: #ee8130;
+}
+.types .type-water span {
+  background-color: #0a47a1;
+  color: #6390f0;
+}
+.types .type-electric span {
+  background-color: #b89a00;
+  color: #f7d02c;
+}
+.types .type-grass span {
+  background-color: #3a7d1a;
+  color: #7ac74c;
+}
+.types .type-ice span {
+  background-color: #4a7d7a;
+  color: #96d9d6;
+}
+.types .type-fighting span {
+  background-color: #7a1a1a;
+  color: #c22e28;
+}
+.types .type-poison span {
+  background-color: #6d1a6d;
+  color: #a33ea1;
+}
+.types .type-ground span {
+  background-color: #a17d1a;
+  color: #e2bf65;
+}
+.types .type-flying span {
+  background-color: #6d4ea1;
+  color: #a98ff3;
+}
+.types .type-psychic span {
+  background-color: #a10a47;
+  color: #f95587;
+}
+.types .type-bug span {
+  background-color: #6d7d1a;
+  color: #a6b91a;
+}
+.types .type-rock span {
+  background-color: #7a6d1a;
+  color: #b6a136;
+}
+.types .type-ghost span {
+  background-color: #4a2e6d;
+  color: #735797;
+}
+.types .type-dragon span {
+  background-color: #3a1aa1;
+  color: #6f35fc;
+}
+.types .type-dark span {
+  background-color: #3a2e1a;
+  color: #705746;
+}
+.types .type-steel span {
+  background-color: #6d6d8a;
+  color: #b7b7ce;
+}
+.types .type-fairy span {
+  background-color: #a14e6d;
+  color: #d685ad;
+}
 
 #sensitivities-small-screens {
   display: none;
@@ -571,17 +616,14 @@
 
   .left-part .img-container img {
     width: 100%;
-
   }
 
   #big-img-container {
     animation: jelly 1s ease-out forwards 0s;
-
   }
 
   .additional-info-container {
     flex-direction: row;
-
   }
 
   #sensitivities {
@@ -597,7 +639,6 @@
 
   .bottom-container {
     gap: 2rem;
-
   }
 
   .bottom-container .types {
@@ -613,13 +654,12 @@
 }
 
 @media (max-width: 768px) {
-
   #sensitivities-small-screens {
     flex-direction: column;
-
   }
 
-  #sensitivities-small-screens .weaknesses-container, #sensitivities-small-screens .resistances-container {
+  #sensitivities-small-screens .weaknesses-container,
+  #sensitivities-small-screens .resistances-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -629,9 +669,8 @@
     flex-direction: column;
   }
 
-  #sensitivities-small-screens .weaknesses-container, #sensitivities-small-screens .resistances-container {
+  #sensitivities-small-screens .weaknesses-container,
+  #sensitivities-small-screens .resistances-container {
     grid-template-columns: 1fr 1fr;
   }
-
-
 }
