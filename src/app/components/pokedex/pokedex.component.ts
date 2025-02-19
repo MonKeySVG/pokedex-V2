@@ -67,15 +67,17 @@ export class PokedexComponent {
     }
   }
 
-  filterPokemons(selectedTypes: string[], selectedGenerations: number[], selectedStatus: string[]) {
-    if (selectedTypes.length === 0 && selectedGenerations.length === 0 && selectedStatus.length === 0) {
+  filterPokemons(selectedTypes: string[], selectedGenerations: number[], selectedStatus: string[], searchText: string): void {
+    if (selectedTypes.length === 0 && selectedGenerations.length === 0 && selectedStatus.length === 0 && searchText === '') {
       this.filteredPokemons = this.pokemons;
     } else {
       this.filteredPokemons = this.pokemons.filter(pokemon => {
         const matchesType = selectedTypes.length === 0 || selectedTypes.some(type => pokemon.types.includes(type));
         const matchesGeneration = selectedGenerations.length === 0 || selectedGenerations.includes(pokemon.generation);
         const matchesStatus = selectedStatus.length === 0 || selectedStatus.includes(this.getPokemonStatus(pokemon));
-        return matchesType && matchesGeneration && matchesStatus;
+        const matchesSearchText = searchText === '' || pokemon.name.toLowerCase().includes(searchText);
+        console.log("search text" + searchText);
+        return matchesType && matchesGeneration && matchesStatus && matchesSearchText;
       });
     }
   }

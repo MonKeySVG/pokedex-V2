@@ -22,10 +22,12 @@ export class FilterModuleComponent {
   selectedTypes: string[] = [];
   selectedGenerations: number[] = [];
   selectedStatus: string[] = [];
+  searchText = '';
 
   @Output() selectedTypesChange = new EventEmitter<string[]>();
   @Output() selectedGenerationsChange = new EventEmitter<number[]>();
   @Output() selectedStatusChange = new EventEmitter<string[]>();
+  @Output() searchTextChange = new EventEmitter<string>();
 
 
   toggleOpen(event: Event): void {
@@ -66,7 +68,11 @@ export class FilterModuleComponent {
     this.selectedStatusChange.emit(this.selectedStatus);
   }
 
-
+  searchPokemon(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.searchText = input.value.toLowerCase();
+    this.searchTextChange.emit(this.searchText);
+  }
 
 
 
