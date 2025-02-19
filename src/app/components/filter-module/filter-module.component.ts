@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output} from '@angular/core';
 import {NgClass, NgForOf} from '@angular/common';
 
 @Component({
@@ -29,6 +29,7 @@ export class FilterModuleComponent {
   @Output() selectedStatusChange = new EventEmitter<string[]>();
   @Output() searchTextChange = new EventEmitter<string>();
 
+  constructor(private elementRef: ElementRef) {}
 
   toggleOpen(event: Event): void {
     const element = event.currentTarget as HTMLElement;
@@ -71,6 +72,26 @@ export class FilterModuleComponent {
   searchPokemon(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.searchText = input.value.toLowerCase();
+    this.searchTextChange.emit(this.searchText);
+  }
+
+  clearFilters(): void {
+    this.selectedTypes = [];
+    this.selectedGenerations = [];
+    this.selectedStatus = [];
+    this.searchText = '';
+
+    const selectedElements = this.elementRef.nativeElement.querySelectorAll('.selected');
+    selectedElements.forEach((element: HTMLElement) => element.classList.remove('selected'));
+
+    const searchBar = this.elementRef.nativeElement.querySelector('.search-bar') as HTMLInputElement;
+    if (searchBar) {
+      searchBar.value = '';
+    }
+
+    this.selectedTypesChange.emit(this.selectedTypes);
+    this.selectedGenerationsChange.emit(this.selectedGenerations);
+    this.selectedStatusChange.emit(this.selectedStatus);
     this.searchTextChange.emit(this.searchText);
   }
 
