@@ -438,7 +438,7 @@ meter::-webkit-meter-optimum-value {
 
 @media (max-width: 768px) {
   .page-container {
-    padding: 3rem;
+    padding: 5rem 3rem;
   }
 
   h1 {
