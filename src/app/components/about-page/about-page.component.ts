@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {PokedexComponent} from '../pokedex/pokedex.component';
 
 @Component({
   selector: 'app-about-page',

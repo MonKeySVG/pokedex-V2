@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, forkJoin, Observable, of, tap} from 'rxjs';
+import {BehaviorSubject, forkJoin, Observable, tap} from 'rxjs';
 import {Pokemon} from '../models/pokemon.model';
 
 @Injectable({

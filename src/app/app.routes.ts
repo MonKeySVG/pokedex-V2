@@ -1,4 +1,4 @@
-import {Router, Routes} from '@angular/router';
+import {Routes} from '@angular/router';
 import {BrowsePageComponent} from './components/browse-page/browse-page.component';
 import {AboutPageComponent} from './components/about-page/about-page.component';
 import {PokemonDetailsPageComponent} from './components/pokemon-details-page/pokemon-details-page.component';
