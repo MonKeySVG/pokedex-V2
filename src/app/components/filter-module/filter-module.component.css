@@ -82,7 +82,7 @@
 .list-items .item {
   list-style: none;
   padding: 0.5rem 1rem;
-
+  text-transform: capitalize;
 }
 
 .list-items.types-list .item {
