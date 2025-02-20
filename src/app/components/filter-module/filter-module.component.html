@@ -9,12 +9,14 @@
     </span>
     </div>
 
-    <ul class="list-items shadow types">
+    <ul class="list-items shadow types-list">
 
-      <li *ngFor="let type of types" [ngClass]="'type-' + type" class="item" (click)="toggleSelectedType($event, type)">
-        <span class="item-text">
-        {{ type }}
-        </span>
+      <li *ngFor="let type of types" class="item" (click)="toggleSelectedType($event, type)">
+        <div class="type-icon types">
+          <span class="item-text shadow" [ngClass]="'type-' + type">
+            {{ type }}
+          </span>
+        </div>
       </li>
     </ul>
   </div>
@@ -60,11 +62,11 @@
   </div>
 
   <div class="search-bar-container">
-    <input type="text" class="search-bar" placeholder="Search Pokemon" (input)="searchPokemon($event)">
+    <input type="text" class="search-bar shadow" placeholder="Search Pokemon" (input)="searchPokemon($event)">
   </div>
 
   <div class="clear-btn-container">
-    <button class="clear-btn" (click)="clearFilters()">Clear Filters</button>
+    <button class="clear-btn shadow" (click)="clearFilters()">Clear Filters</button>
   </div>
 </div>
 

@@ -16,6 +16,7 @@
   border-radius: 8px;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.6);
+  color: lightgrey;
 }
 
 .search-bar-container {
@@ -32,6 +33,7 @@
   font-weight: 600;
   border: none;
   color: gray;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .search-bar:focus {
@@ -47,6 +49,8 @@
   display: flex;
   align-items: center;
   padding: 0 1rem;
+  gap: 0.5rem;
+
 }
 
 .arrow-dwn {
@@ -78,15 +82,34 @@
 .list-items .item {
   list-style: none;
   padding: 0.5rem 1rem;
-  filter: grayscale(1);
+
+}
+
+.list-items.types-list .item {
+  /*filter: grayscale(1);*/
+}
+
+.list-items.types-list .item .type-icon {
+}
+
+.list-items .item:hover {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .list-items .item.selected {
-  filter: grayscale(0);
+  background-color: gray;
+}
+
+.list-items.types-list .item:hover {
 
 }
 
 .list-items .item span {
-  font-size: 1rem;
+  font-size: 0.833rem;
   font-weight: 400;
+  border-radius: 6px;
+}
+
+.type-icon span {
+  padding: 0 0.5rem;
 }
