@@ -55,6 +55,7 @@ deploy-job:      # This job runs in the deploy stage.
 
 pages-job:
   stage: deploy
+  image: node:latest
   cache:
     key:
       files:
