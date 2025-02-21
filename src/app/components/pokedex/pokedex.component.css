@@ -36,8 +36,9 @@ li.animate {
   position: relative;
   animation: l11 7s infinite;
 }
-.loader:before,
-.loader:after {
+
+.loader::before,
+.loader::after {
   content: "";
   position: absolute;
   top: calc(100% + 3px);
@@ -49,7 +50,8 @@ li.animate {
   transform-origin: 50% -28px;
   animation: l11 1.5s infinite;
 }
-.loader:after {
+
+.loader::after {
   animation-delay: -0.75s;
 }
 
@@ -63,6 +65,7 @@ li.animate {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }

@@ -6,6 +6,7 @@ import { Pokemon } from '../models/pokemon.model';
 @Injectable({
   providedIn: 'root',
 })
+
 export class PokedexService {
   private apiUrl = 'https://pokeapi.co/api/v2/pokemon';
   private pokemonsSubject = new BehaviorSubject<Pokemon[]>([]);
