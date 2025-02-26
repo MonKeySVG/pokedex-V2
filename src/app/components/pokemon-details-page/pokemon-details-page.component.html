@@ -16,16 +16,47 @@
       </h1>
 
       <div id="big-img-container" class="img-container">
-        <img
-          src="{{ pokemon.spriteArtworkUrl }}"
-          alt="{{ pokemon.name }}"
-          [style.filter]="
+        <div class="img-wrapper">
+          <img
+            src="{{ useShinySprite ? pokemon.spriteArtworkShinyUrl : pokemon.spriteArtworkUrl }}"
+            alt="{{ pokemon.name }}"
+            [style.filter]="
             'saturate(1.5) drop-shadow(0px 0px 5px ' +
             'color-mix(in srgb, ' +
             (pokemon.color === 'black' ? 'white' : pokemon.color) +
             ', transparent 0%))'
           "
-        />
+          />
+          <div *ngIf="useShinySprite" class="shiny-stars">
+            <div class="star-1"></div>
+            <div class="star-2"></div>
+            <div class="star-3"></div>
+            <div class="star-4"></div>
+            <div class="star-5"></div>
+            <div class="star-6"></div>
+            <div class="star-7"></div>
+            <div class="star-8"></div>
+            <div class="star-9"></div>
+            <div class="star-10"></div>
+            <div class="star-11"></div>
+            <div class="star-12"></div>
+            <div class="star-13"></div>
+            <div class="star-14"></div>
+            <div class="star-15"></div>
+            <div class="star-16"></div>
+            <div class="star-17"></div>
+            <div class="star-18"></div>
+            <div class="star-19"></div>
+            <div class="star-20"></div>
+            <div class="star-21"></div>
+            <div class="star-22"></div>
+            <div class="star-23"></div>
+            <div class="star-24"></div>
+            <div class="star-25"></div>
+          </div>
+        </div>
+
+
       </div>
 
       <div
@@ -70,7 +101,7 @@
       <div class="base-info-container">
         <p id="id" class="id">#{{ pokemon.id }}</p>
         <div id="name" class="name-container clash">
-          <h1>
+          <h1 [ngClass]="useShinySprite ? 'shiny' : ''">
             {{ pokemon.name }}
             <span
               *ngIf="pokemon.isLegendary"
@@ -86,6 +117,10 @@
             <span *ngIf="pokemon.isBaby" class="status-container baby">
               baby
             </span>
+
+            <span *ngIf="useShinySprite" class="status-container shiny">
+              Shiny
+            </span>
           </h1>
         </div>
       </div>
@@ -96,6 +131,7 @@
           *ngIf="pokemon.types.length > 0"
           [ngClass]="'type-' + pokemon.types[0]"
           class="shadow"
+          (click)="filterByType(pokemon.types[0])"
         >
           {{ pokemon.types[0] }}
         </p>
@@ -104,6 +140,7 @@
           *ngIf="pokemon.types.length > 1"
           [ngClass]="'type-' + pokemon.types[1]"
           class="shadow"
+          (click)="filterByType(pokemon.types[1])"
         >
           {{ pokemon.types[1] }}
         </p>

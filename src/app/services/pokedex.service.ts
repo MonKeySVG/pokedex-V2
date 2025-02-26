@@ -6,7 +6,6 @@ import { Pokemon } from '../models/pokemon.model';
 @Injectable({
   providedIn: 'root',
 })
-
 export class PokedexService {
   private apiUrl = 'https://pokeapi.co/api/v2/pokemon';
   private pokemonsSubject = new BehaviorSubject<Pokemon[]>([]);
@@ -192,6 +191,7 @@ export class PokedexService {
             const spriteUrl = pokemon.sprites.front_default;
             const spriteArtworkUrl =
               pokemon.sprites.other['official-artwork'].front_default;
+            const spriteArtworkShinyUrl = pokemon.sprites.other['official-artwork'].front_shiny;
             const spriteShowdownUrl =
               pokemon.sprites.other.showdown.front_default;
             const height = pokemon.height / 10;
@@ -212,6 +212,7 @@ export class PokedexService {
               generation,
               spriteUrl,
               spriteArtworkUrl,
+              spriteArtworkShinyUrl,
               spriteShowdownUrl,
               height,
               weight,

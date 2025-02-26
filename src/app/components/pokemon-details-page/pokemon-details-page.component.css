@@ -17,6 +17,16 @@
   flex: 1;
 }
 
+.right-part .types p {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+
+}
+
+.right-part .types p:hover {
+  scale: 1.1;
+}
+
 .left-part .img-container {
   animation-delay: 0.2s;
   position: relative;
@@ -32,6 +42,217 @@
   /* image-rendering: -moz-crisp-edges; !* Firefox *! */
 
   /* image-rendering: crisp-edges; !* Safari, Chrome, Edge *! */
+}
+
+
+
+@keyframes shinyStars {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  50% {
+    opacity: 0.8;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-120px);
+  }
+}
+
+.shiny-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shiny-stars::before,
+.shiny-stars::after,
+.shiny-stars div {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 122.88" style="enable-background:new 0 0 122.88 122.88" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:yellow;}</style><g><path class="st0" d="M62.43,122.88h-1.98c0-16.15-6.04-30.27-18.11-42.34C30.27,68.47,16.16,62.43,0,62.43v-1.98 c16.16,0,30.27-6.04,42.34-18.14C54.41,30.21,60.45,16.1,60.45,0h1.98c0,16.15,6.04,30.27,18.11,42.34 c12.07,12.07,26.18,18.11,42.34,18.11v1.98c-16.15,0-30.27,6.04-42.34,18.11C68.47,92.61,62.43,106.72,62.43,122.88L62.43,122.88z"/></g></svg>') no-repeat center center;
+  filter: drop-shadow(0 0 5px #ffdd00) drop-shadow(0 0 10px #ffbe5e) drop-shadow(0 0 15px #ff8c00);
+  background-size: contain;
+  animation: shinyStars 5s ease-in-out infinite;
+}
+
+.shiny-stars::before {
+  top: 80%;
+  left: 30%;
+  animation-delay: 0.2s;
+}
+
+.shiny-stars::after {
+  top: 60%;
+  left: 70%;
+  animation-delay: 0.8s;
+}
+
+.shiny-stars .star-1 {
+  top: 40%;
+  left: 50%;
+  animation-delay: 1.2s;
+}
+
+.shiny-stars .star-2 {
+  top: 30%;
+  left: 80%;
+  animation-delay: 1.6s;
+}
+
+.shiny-stars .star-3 {
+  top: 80%;
+  left: 20%;
+  animation-delay: 1.8s;
+}
+
+.shiny-stars .star-4 {
+  top: 30%;
+  left: 20%;
+  animation-delay: 2.1s;
+}
+
+.shiny-stars .star-5 {
+  top: 60%;
+  left: 50%;
+  animation-delay: 2.9s;
+}
+
+.shiny-stars .star-6 {
+  top: 90%;
+  left: 10%;
+  animation-delay: 3.2s;
+}
+
+.shiny-stars .star-7 {
+  top: 70%;
+  left: 5%;
+  animation-delay: 2.1s;
+}
+
+.shiny-stars .star-8 {
+  top: 75%;
+  left: 60%;
+  animation-delay: 3.5s;
+}
+
+.shiny-stars .star-9 {
+  top: 60%;
+  left: 12%;
+  animation-delay: 3.3s;
+}
+
+.shiny-stars .star-10 {
+  top: 70%;
+  left: 55%;
+  animation-delay: 0.4s;
+}
+
+.shiny-stars .star-11 {
+  top: 20%;
+  left: 40%;
+  animation-delay: 2.5s;
+}
+
+.shiny-stars .star-12 {
+  top: 50%;
+  left: 80%;
+  animation-delay: 3.0s;
+}
+
+.shiny-stars .star-13 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 3.5s;
+}
+
+.shiny-stars .star-14 {
+  top: 70%;
+  left: 30%;
+  animation-delay: 4.0s;
+}
+
+.shiny-stars .star-15 {
+  top: 40%;
+  left: 60%;
+  animation-delay: 4.5s;
+}
+
+.shiny-stars .star-16 {
+  top: 20%;
+  left: 70%;
+  animation-delay: 5.0s;
+}
+
+.shiny-stars .star-17 {
+  top: 30%;
+  left: 90%;
+  animation-delay: 5.5s;
+}
+
+.shiny-stars .star-18 {
+  top: 50%;
+  left: 20%;
+  animation-delay: 6.0s;
+}
+
+.shiny-stars .star-19 {
+  top: 80%;
+  left: 40%;
+  animation-delay: 6.5s;
+}
+
+.shiny-stars .star-20 {
+  top: 60%;
+  left: 10%;
+  animation-delay: 7.0s;
+}
+
+.shiny-stars .star-21 {
+  top: 40%;
+  left: 90%;
+  animation-delay: 7.5s;
+}
+
+.shiny-stars .star-22 {
+  top: 20%;
+  left: 50%;
+  animation-delay: 8.0s;
+}
+
+.shiny-stars .star-23 {
+  top: 70%;
+  left: 80%;
+  animation-delay: 8.5s;
+}
+
+.shiny-stars .star-24 {
+  top: 50%;
+  left: 60%;
+  animation-delay: 9.0s;
+}
+
+.shiny-stars .star-25 {
+  top: 30%;
+  left: 30%;
+  animation-delay: 9.5s;
 }
 
 #jap-name {
@@ -124,6 +345,21 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bottom-container .pokemon-container:hover {
+  scale: 0.95;
+}
+
+.bottom-container .pokemon-container img {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bottom-container .pokemon-container:hover img {
+  transform: scale(1.5);
+  filter: saturate(2.5) drop-shadow(4px 4px 10px rgba(211, 211, 211, 0.3));
+
 }
 
 .lil-jap-name {
@@ -377,6 +613,7 @@
 }
 
 .sensitivities-container {
+  z-index: 1000;
   padding: 1rem;
   padding-bottom: 1.4rem;
   border-radius: 12px;
@@ -431,6 +668,23 @@
   --color1: #ffb6c1; /* Light Pink */
   --color2: #ff69b4; /* Hot Pink */
   --color3: #ff1493; /* Deep Pink */
+}
+
+.name-container .shiny {
+  --color1: #ffdd00; /* Yellow */
+  --color2: #ffbe5e; /* Light Orange */
+  --color3: #ff8c00; /* Dark Orange */
+}
+
+#name .shiny {
+  color: white;
+  text-shadow: var(--color1) 0 0 5px, var(--color2) 0 0 10px, var(--color3) 0 0 20px, var(--color2) 0 0 30px;
+}
+
+#name .shiny span {
+  color: rgb(0 0 0 / 65%);
+  text-shadow: none;
+  margin-right: 1rem;
 }
 
 @keyframes blurInLeft {
@@ -605,6 +859,10 @@
   }
 
   .page-container #big-img-container img {
+    width: 100%;
+  }
+
+  .shiny-stars {
     width: 100%;
   }
 

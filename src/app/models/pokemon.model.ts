@@ -19,6 +19,7 @@ export class Pokemon {
   // Sprites
   spriteUrl: string;
   spriteArtworkUrl: string;
+  spriteArtworkShinyUrl: string;
   spriteShowdownUrl: string;
 
   height: number;
@@ -40,6 +41,7 @@ export class Pokemon {
     generation: number,
     spriteUrl: string,
     spriteArtworkUrl: string,
+    spriteArtworkShinyUrl: string,
     spriteShowdownUrl: string,
     height: number,
     weight: number,
@@ -59,6 +61,7 @@ export class Pokemon {
     this.generation = generation;
     this.spriteUrl = spriteUrl;
     this.spriteArtworkUrl = spriteArtworkUrl;
+    this.spriteArtworkShinyUrl = spriteArtworkShinyUrl;
     this.spriteShowdownUrl = spriteShowdownUrl;
     this.height = height;
     this.weight = weight;

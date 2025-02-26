@@ -14,8 +14,6 @@ export class AnimateOnScrollDirective implements AfterViewInit {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           this.renderer.addClass(this.el.nativeElement, 'animate');
-        } else {
-          this.renderer.removeClass(this.el.nativeElement, 'animate');
         }
       });
     });

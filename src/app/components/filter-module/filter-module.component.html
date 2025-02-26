@@ -1,65 +1,73 @@
 <div class="filter-module shadow">
-  <div class="container dropdown shadow">
-    <div class="select-btn type-button"(click)="toggleOpen($event)">
-      <span class="btn-text">Type</span>
-      <span class="arrow-dwn">
+
+  <div class="dropdowns-container">
+    <div class="container dropdown shadow">
+      <div class="select-btn type-button"(click)="toggleOpen($event)">
+        <span class="btn-text">Type</span>
+        <span class="arrow-dwn">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
       </svg>
     </span>
-    </div>
+      </div>
 
-    <ul class="list-items shadow types-list">
 
-      <li *ngFor="let type of types" class="item" (click)="toggleSelectedType($event, type)">
-        <div class="type-icon types">
+
+      <ul class="list-items shadow types-list">
+
+        <li *ngFor="let type of types" class="item" (click)="toggleSelectedType($event, type)">
+          <div class="type-icon types">
           <span class="item-text shadow" [ngClass]="'type-' + type">
             {{ type }}
           </span>
-        </div>
-      </li>
-    </ul>
-  </div>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-  <div class="container dropdown shadow">
-    <div class="select-btn type-button"(click)="toggleOpen($event)">
-      <span class="btn-text">Generation</span>
-      <span class="arrow-dwn">
+    <div class="container dropdown shadow">
+      <div class="select-btn type-button"(click)="toggleOpen($event)">
+        <span class="btn-text">Generation</span>
+        <span class="arrow-dwn">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
       </svg>
     </span>
-    </div>
+      </div>
 
-    <ul class="list-items shadow">
+      <ul class="list-items shadow">
 
-      <li *ngFor="let gen of generations" class="item" (click)="toggleSelectedGeneration($event, gen)">
+        <li *ngFor="let gen of generations" class="item" (click)="toggleSelectedGeneration($event, gen)">
         <span class="item-text">
         {{ gen }}
         </span>
-      </li>
-    </ul>
-  </div>
+        </li>
+      </ul>
+    </div>
 
-  <div class="container dropdown shadow">
-    <div class="select-btn type-button"(click)="toggleOpen($event)">
-      <span class="btn-text">Status</span>
-      <span class="arrow-dwn">
+    <div class="container dropdown shadow">
+      <div class="select-btn type-button"(click)="toggleOpen($event)">
+        <span class="btn-text">Status</span>
+        <span class="arrow-dwn">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
       </svg>
     </span>
-    </div>
+      </div>
 
-    <ul class="list-items shadow">
+      <ul class="list-items shadow">
 
-      <li *ngFor="let status of status" class="item" (click)="toggleSelectedStatus($event, status)">
+        <li *ngFor="let status of status" class="item" (click)="toggleSelectedStatus($event, status)">
         <span class="item-text">
         {{ status }}
         </span>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
+
+
+
 
   <div class="search-bar-container">
     <input type="text" class="search-bar shadow" placeholder="Search Pokemon" (input)="searchPokemon($event)">

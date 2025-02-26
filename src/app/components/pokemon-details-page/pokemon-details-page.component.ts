@@ -17,6 +17,7 @@ export class PokemonDetailsPageComponent {
   previousPokemon!: Pokemon;
   statNames: string[] = ['HP', 'ATK', 'DEF', 'ATK SP', 'DEF SP', 'SPD'];
   isVisible: boolean = true;
+  useShinySprite: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +30,8 @@ export class PokemonDetailsPageComponent {
       const id = +params.get('id')!;
       this.pokedexService.pokemons$.subscribe((pokemons) => {
         this.pokemon = pokemons.find((p) => p.id === id)!;
+
+        this.useShinySprite = Math.random() < 0.1; // 10% probability
 
         const foundNextPokemon = pokemons.find((p) => p.id === id + 1);
         if (foundNextPokemon) {
@@ -62,6 +65,11 @@ export class PokemonDetailsPageComponent {
 
   hasWeaknesses(): boolean {
     return Object.values(this.pokemon.sensitivities).some((value) => value > 1);
+  }
+
+  filterByType(type: string): void {
+    console.log('filterByType', type);
+    this.router.navigate(['/browsePage'], { queryParams: { type } });
   }
 
   // getResistances(): { [key: string]: number } {

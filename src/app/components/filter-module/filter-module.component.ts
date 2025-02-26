@@ -31,6 +31,29 @@ export class FilterModuleComponent {
 
   constructor(private elementRef: ElementRef) {}
 
+  ngAfterViewInit(): void {
+
+    setTimeout(() => {
+      this.updateSelectedClasses();
+      console.log(this.selectedTypes);
+    }, 1000);
+  }
+
+  updateSelectedClasses(): void {
+    this.selectedTypes.forEach(type => {
+      const typeElement = this.elementRef.nativeElement.querySelector(`.types-list .item .types .type-${type}`);
+      // console.log(typeElement);
+      if (typeElement) {
+        const parentItemElement = typeElement.closest('.item');
+        // console.log(parentItemElement);
+        if (parentItemElement) {
+          parentItemElement.classList.add('selected');
+        }
+      }
+
+    });
+  }
+
   toggleOpen(event: Event): void {
     const element = event.currentTarget as HTMLElement;
     const openElements = this.elementRef.nativeElement.querySelectorAll('.open');
