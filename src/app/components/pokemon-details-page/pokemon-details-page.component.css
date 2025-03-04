@@ -954,4 +954,14 @@
   #sensitivities-small-screens .resistances-container {
     grid-template-columns: 1fr 1fr;
   }
+
+  .stat-container p {
+    font-size: 0.833rem;
+  }
+}
+
+@media (width <= 450px) {
+  .stat-container p {
+    font-size: 0.594rem;
+  }
 }
