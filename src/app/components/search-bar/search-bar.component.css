@@ -4,10 +4,20 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0 0 0 / 70%);
+  animation: makeDarker 0.3s forwards;
   display: flex;
   justify-content: center;
   z-index: 1001;
+}
+
+@keyframes makeDarker {
+  from {
+    background-color: rgb(0 0 0 / 0%);
+  }
+
+  to {
+    background-color: rgb(0 0 0 / 70%);
+  }
 }
 
 .search-bar-container {
@@ -18,6 +28,22 @@
   flex-direction: column;
   margin-top: 300px;
   margin-bottom: auto;
+  animation: translateUp 0.3s ease-out forwards;
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+}
+
+@keyframes translateUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
 
 .search-bar {
