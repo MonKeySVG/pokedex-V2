@@ -88,12 +88,27 @@ button {
 meter {
   /* style rules */
   appearance: none;
+
 }
+
+@media (max-width: 726px) {
+  meter {
+    height: 6px;
+  }
+}
+
+@media (min-width: 727px) {
+  meter::-webkit-meter-bar {
+    height: 6px;
+  }
+}
+
+
+
 
 meter::-webkit-meter-bar {
   background: none; /* Required to get rid of the default background property */
   background-color: rgb(0 0 0 / 60%);
-  height: 6px;
   padding: 2px;
   border-radius: 3px;
 }
