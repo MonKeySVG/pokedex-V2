@@ -839,6 +839,7 @@
   position: relative;
   right: auto;
   bottom: auto;
+  z-index: 1;
 }
 
 @media (width <= 1280px) {
