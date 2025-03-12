@@ -39,6 +39,7 @@
   border: none;
   color: gray;
   background-color: rgb(0 0 0 / 60%);
+  text-align: center;
 }
 
 .search-bar:focus {
