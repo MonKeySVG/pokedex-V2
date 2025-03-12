@@ -247,20 +247,28 @@ export class PokedexService {
     }
   }
 
-  private calculateTypeSensitivities(types: string[]): {
+  private calculateTypeSensitivities(pokemonTypes: string[]): {
     [key: string]: number;
   } {
     const sensitivities: { [key: string]: number } = {};
+    const allTypes = Object.keys(this.typeEffectiveness);
 
-    types.forEach((type) => {
-      const effectiveness = this.typeEffectiveness[type];
-      for (const [targetType, multiplier] of Object.entries(effectiveness)) {
-        if (!sensitivities[targetType]) {
-          sensitivities[targetType] = 1;
+    // Pour chaque type d'attaque possible
+    for (const attackType of allTypes) {
+      let multiplier = 1;
+
+      // Vérifier l'efficacité de ce type d'attaque contre chacun des types du Pokémon
+      for (const pokemonType of pokemonTypes) {
+        // Chercher si le type d'attaque a un effet particulier contre ce type de Pokémon
+        const effectiveness = this.typeEffectiveness[attackType];
+        if (effectiveness && effectiveness[pokemonType] !== undefined) {
+          multiplier *= effectiveness[pokemonType];
         }
-        sensitivities[targetType] *= multiplier;
       }
-    });
+
+      // Enregistrer la sensibilité finale pour ce type d'attaque
+      sensitivities[attackType] = multiplier;
+    }
 
     console.log(sensitivities);
     return sensitivities;
