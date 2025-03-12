@@ -24,6 +24,10 @@ html {
   padding: 0;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .page-container {
   padding: 5em;
 }
@@ -1888,3 +1892,4 @@ meter::-webkit-meter-optimum-value {
     flex-direction: column;
   }
 }
+

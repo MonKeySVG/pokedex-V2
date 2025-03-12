@@ -21,14 +21,24 @@ export class HeaderComponent {
 
   openSearchBar() {
     this.isSearchBarOpen = true;
+    document.body.classList.add('no-scroll');
+    console.log('openSearchBar');
   }
 
   closeSearchBar() {
     this.isSearchBarOpen = false;
+    document.body.classList.remove('no-scroll');
+    console.log('closeSearchBar');
+
   }
 
   toggleSearchBar() {
     this.isSearchBarOpen = !this.isSearchBarOpen;
+    if (this.isSearchBarOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
   }
 
   @HostListener('window:keydown', ['$event'])
