@@ -51,6 +51,7 @@ export class PokemonDetailsPageComponent {
     setTimeout(() => {
       this.router.navigate(['/pokemon', id]).then(() => {
         this.isVisible = true;
+        window.scrollTo(0, 0);
       });
     }, 1);
   }
